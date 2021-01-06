@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.hust.sophia",
+      "nativeLanguage": "vi"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "sophia",
+    "packageName": "com.hust.sophia",
+    "packageFolder": "com/hust/sophia",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NWY2Yzc5ZTRmNDkwNTgxMWY1NTAwMjljNDA4OGU3MmQ3NzM5NzBlYjJhOWZhZmM0MDcwYjY5MjRjNWNkYTczOWRmOTVjNzY4NjkzM2E4MzgxZjZkN2I0OTRiODA0MDliZjIwYzczOTQxNzM3YTBiYjhjNjFmYmU1ODE3ZDhiY2M=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1609934287615,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "vi",
+    "languages": ["vi"],
+    "blueprints": []
+  }
+}
