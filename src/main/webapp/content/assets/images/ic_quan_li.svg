@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="61.947" height="62.296" viewBox="0 0 61.947 62.296">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #003173;
+      }
+
+      .cls-2 {
+        fill: #1ba0e1;
+      }
+    </style>
+  </defs>
+  <g id="ic_quan_li" transform="translate(-173.739 -221.296)">
+    <path id="Path_19407" data-name="Path 19407" class="cls-1" d="M247.43,372.378H230.2a3.893,3.893,0,0,1-3.889-3.889V351.763a3.893,3.893,0,0,1,3.889-3.889H247.43a3.894,3.894,0,0,1,3.889,3.889v16.726A3.894,3.894,0,0,1,247.43,372.378Zm-17.233-21.1a.487.487,0,0,0-.486.486v16.726a.487.487,0,0,0,.486.486H247.43a.487.487,0,0,0,.486-.486V351.763a.487.487,0,0,0-.486-.486Z" transform="translate(-52.569 -106.889)"/>
+    <path id="Path_19408" data-name="Path 19408" class="cls-1" d="M384.275,336.8H369.61a3.894,3.894,0,0,1-3.889-3.889V286.874a3.894,3.894,0,0,1,3.889-3.889h14.665a1.7,1.7,0,0,1,0,3.4H369.61a.487.487,0,0,0-.486.486v46.038a.487.487,0,0,0,.486.486h14.665a1.7,1.7,0,0,1,0,3.4Z" transform="translate(-158.096 -57.773)"/>
+    <path id="Path_19409" data-name="Path 19409" class="cls-1" d="M350.185,396.018h-27.8a1.7,1.7,0,0,1,0-3.4h27.8a1.7,1.7,0,0,1,0,3.4Z" transform="translate(-124.006 -140.756)"/>
+    <rect id="Rectangle_591" data-name="Rectangle 591" class="cls-2" width="12.027" height="12.099" transform="translate(223.658 221.296)"/>
+    <rect id="Rectangle_592" data-name="Rectangle 592" class="cls-2" width="12.027" height="12.099" transform="translate(223.658 247.439)"/>
+    <rect id="Rectangle_593" data-name="Rectangle 593" class="cls-2" width="12.027" height="12.099" transform="translate(223.658 271.493)"/>
+    <rect id="Rectangle_594" data-name="Rectangle 594" class="cls-2" width="8.642" height="4.465" transform="translate(181.815 251.184)"/>
+  </g>
+</svg>

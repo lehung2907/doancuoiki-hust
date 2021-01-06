@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(255,255,255,0.16);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="main_ql_ic1" transform="translate(-12 -125)">
+    <g id="Group_1359" data-name="Group 1359">
+      <g id="Group_874" data-name="Group 874">
+        <g id="Component_21_31" data-name="Component 21 – 31" transform="translate(12 125)">
+          <rect id="Rectangle_436" data-name="Rectangle 436" class="cls-1" width="45" height="45" rx="8"/>
+        </g>
+      </g>
+      <g id="Group_1290" data-name="Group 1290" transform="translate(-151.398 -84.299)">
+        <path id="Path_19407" data-name="Path 19407" class="cls-2" d="M233.87,356.646H227.7a1.394,1.394,0,0,1-1.392-1.392v-5.988a1.394,1.394,0,0,1,1.392-1.392h6.169a1.394,1.394,0,0,1,1.392,1.392v5.988A1.394,1.394,0,0,1,233.87,356.646Zm-6.169-7.554a.174.174,0,0,0-.174.174v5.988a.174.174,0,0,0,.174.174h6.169a.174.174,0,0,0,.174-.174v-5.988a.174.174,0,0,0-.174-.174Z" transform="translate(-52.569 -119.098)"/>
+        <path id="Path_19408" data-name="Path 19408" class="cls-2" d="M372.363,303.079h-5.25a1.425,1.425,0,0,1-1.392-1.452v-17.19a1.425,1.425,0,0,1,1.392-1.452h5.25a.636.636,0,0,1,0,1.271h-5.25a.178.178,0,0,0-.174.181v17.19a.178.178,0,0,0,.174.182h5.25a.636.636,0,0,1,0,1.271Z" transform="translate(-179.028 -60.287)"/>
+        <path id="Path_19409" data-name="Path 19409" class="cls-2" d="M332.121,393.833H321.344a.611.611,0,1,1,0-1.218h10.777a.611.611,0,1,1,0,1.218Z" transform="translate(-138.836 -159.947)"/>
+        <rect id="Rectangle_591" data-name="Rectangle 591" class="cls-2" width="4.306" height="4.331" transform="translate(192.433 221.296)"/>
+        <rect id="Rectangle_592" data-name="Rectangle 592" class="cls-2" width="4.306" height="4.331" transform="translate(192.433 231.087)"/>
+        <rect id="Rectangle_593" data-name="Rectangle 593" class="cls-2" width="4.306" height="4.331" transform="translate(192.433 240.095)"/>
+        <rect id="Rectangle_594" data-name="Rectangle 594" class="cls-2" width="3.094" height="1.598" transform="translate(176.63 232.424)"/>
+      </g>
+    </g>
+  </g>
+</svg>

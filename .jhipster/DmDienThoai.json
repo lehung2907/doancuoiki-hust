@@ -1,0 +1,53 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "hangSanXuat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tenDienThoai",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "giaDienThoai",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ngayNhap",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ngayXuat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "daBan",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "moTaSanPham",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ghiChu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hinhSanPham",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "changelogDate": "20210106135020",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "dm_dien_thoai",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

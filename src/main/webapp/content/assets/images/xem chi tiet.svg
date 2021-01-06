@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-xem_chi_tiet">
+      <rect width="18" height="18"/>
+    </clipPath>
+  </defs>
+  <g id="xem_chi_tiet" data-name="xem chi tiet" clip-path="url(#clip-xem_chi_tiet)">
+    <g id="Group_1157" data-name="Group 1157" transform="translate(6717 -3409)">
+      <g id="Group_598" data-name="Group 598" transform="translate(-6713.846 3413.805)">
+        <g id="Group_595" data-name="Group 595" transform="translate(0)">
+          <g id="Group_594" data-name="Group 594">
+            <path id="Path_19031" data-name="Path 19031" d="M4336.813-11642.489c-.1-.143-2.6-3.511-5.792-3.511s-5.687,3.368-5.791,3.511a.387.387,0,0,0,0,.457c.1.143,2.6,3.511,5.791,3.511s5.688-3.368,5.792-3.511A.388.388,0,0,0,4336.813-11642.489Zm-5.792,3.194c-2.349,0-4.384-2.236-4.986-2.966.6-.731,2.632-2.966,4.986-2.966s4.384,2.235,4.987,2.966C4335.406-11641.529,4333.376-11639.295,4331.021-11639.295Z" transform="translate(-4325.155 11646)" fill="#1ba0e1"/>
+          </g>
+        </g>
+        <g id="Group_597" data-name="Group 597" transform="translate(3.545 1.418)">
+          <g id="Group_596" data-name="Group 596">
+            <path id="Path_19032" data-name="Path 19032" d="M4332.216-11644.1a2.323,2.323,0,0,0-2.32,2.32,2.322,2.322,0,0,0,2.32,2.32,2.323,2.323,0,0,0,2.322-2.32A2.324,2.324,0,0,0,4332.216-11644.1Zm0,3.867a1.548,1.548,0,0,1-1.546-1.547,1.549,1.549,0,0,1,1.546-1.547,1.55,1.55,0,0,1,1.547,1.547A1.548,1.548,0,0,1,4332.216-11640.236Z" transform="translate(-4329.896 11644.104)" fill="#1ba0e1"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_601" data-name="Group 601" transform="translate(-6717.016 3410.043)">
+        <g id="Group_599" data-name="Group 599">
+          <path id="Path_19033" data-name="Path 19033" d="M4321.851-11647.417h-.935V-11651h3.583v.936h-2.648Z" transform="translate(-4320.917 11651)" fill="#1ba0e1"/>
+          <path id="Path_19034" data-name="Path 19034" d="M4343.875-11647.417h-.935v-2.647h-2.648v-.936h3.583Z" transform="translate(-4325.802 11651)" fill="#1ba0e1"/>
+        </g>
+        <g id="Group_600" data-name="Group 600" transform="translate(0 11.418)">
+          <path id="Path_19035" data-name="Path 19035" d="M4324.5-11632.209h-3.583v-3.582h.935v2.648h2.648Z" transform="translate(-4320.917 11635.791)" fill="#1ba0e1"/>
+          <path id="Path_19036" data-name="Path 19036" d="M4343.875-11632.209h-3.583v-.934h2.648v-2.648h.935Z" transform="translate(-4325.802 11635.791)" fill="#1ba0e1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

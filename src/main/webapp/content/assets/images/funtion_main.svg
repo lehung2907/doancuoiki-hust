@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35.572" height="15.693" viewBox="0 0 35.572 15.693">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #898989;
+      }
+    </style>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd34a"/>
+      <stop offset="1" stop-color="#e97e00"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1175" data-name="Group 1175" transform="translate(-7119.701 -1739.441)">
+    <g id="Group_1082" data-name="Group 1082">
+      <path id="Path_19518" data-name="Path 19518" class="cls-1" d="M7135.293,1755.134h-14.28a1.376,1.376,0,0,1-1.312-1.428v-11.317a1.376,1.376,0,0,1,1.312-1.429h14.28a1.376,1.376,0,0,1,1.312,1.429v11.317A1.376,1.376,0,0,1,7135.293,1755.134Zm-14.28-13.429a.658.658,0,0,0-.627.684v11.317a.657.657,0,0,0,.627.683h14.28a.657.657,0,0,0,.627-.683v-11.317a.658.658,0,0,0-.627-.684Z"/>
+      <rect id="Rectangle_725" data-name="Rectangle 725" class="cls-1" width="16.122" height="12.975" transform="translate(7120.124 1741.705)"/>
+    </g>
+    <path id="Path_19533" data-name="Path 19533" class="cls-2" d="M7145.972,1746.938l7.61-7.5-2.706,6.2h4.4l-6.99,8.794,2.65-7.5Z"/>
+  </g>
+</svg>

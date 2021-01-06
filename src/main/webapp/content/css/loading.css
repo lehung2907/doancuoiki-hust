@@ -150,3 +150,17 @@
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
+.header-bottom .navbar ul li a {
+  font-size: 13px;
+  font-weight: bold !important;
+  color: #fff;
+  transition: 0.3s ease-out;
+}
+.header-bottom .navbar ul.dropdown-menu li a {
+  font-weight: bold;
+  color: #000;
+  transition: 0.3s ease-out;
+}
+.header-bottom .navbar ul.dropdown-menu li a:hover {
+  color: #fff;
+}

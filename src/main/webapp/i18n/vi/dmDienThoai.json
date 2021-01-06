@@ -1,0 +1,30 @@
+{
+  "sophiaApp": {
+    "dmDienThoai": {
+      "home": {
+        "title": "Dm Dien Thoais",
+        "createLabel": "Thêm mới một Dm Dien Thoai",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Dm Dien Thoai",
+        "notFound": "No Dm Dien Thoais found"
+      },
+      "created": "Một Dm Dien Thoai mới được tạo với định danh {{ param }}",
+      "updated": "Một Dm Dien Thoai cập nhật với định danh {{ param }}",
+      "deleted": "Một Dm Dien Thoai đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Dm Dien Thoai {{ id }}?"
+      },
+      "detail": {
+        "title": "Dm Dien Thoai"
+      },
+      "hangSanXuat": "Hang San Xuat",
+      "tenDienThoai": "Ten Dien Thoai",
+      "giaDienThoai": "Gia Dien Thoai",
+      "ngayNhap": "Ngay Nhap",
+      "ngayXuat": "Ngay Xuat",
+      "daBan": "Da Ban",
+      "moTaSanPham": "Mo Ta San Pham",
+      "ghiChu": "Ghi Chu",
+      "hinhSanPham": "Hinh San Pham"
+    }
+  }
+}

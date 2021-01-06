@@ -7,7 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Thực thể",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "dmDienThoai": "Dm Dien Thoai",
+        "dmLapTop": "Dm Lap Top",
+        "dmTablet": "Dm Tablet",
+        "dmAmThanh": "Dm Am Thanh",
+        "dmDongHo": "Dm Dong Ho",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "tivi": "Tivi",
+        "dienthoai": {
+          "dienthoai": "Điện thoại",
+          "iphone": "Iphone",
+          "samsung": "Samsung"
+        }
       },
       "account": {
         "main": "Tài khoản",
