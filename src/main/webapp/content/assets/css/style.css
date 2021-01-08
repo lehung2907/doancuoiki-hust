@@ -234,7 +234,7 @@ a:hover {
 }
 
 .header-main {
-  background-image: url('../images/BG_banner.png');
+  background-color: #ffc107;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
