@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dmSanPham">
+            <h2><span jhiTranslate="sophiaApp.dmSanPham.detail.title">Dm San Pham</span> {{ dmSanPham.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.loaiSanPham">Loai San Pham</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.loaiSanPham }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.thuongHieu">Thuong Hieu</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.thuongHieu }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.ten">Ten</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.ten }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.gia">Gia</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.gia }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.moTa">Mo Ta</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.moTa }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.anh">Anh</span></dt>
+                <dd>
+                    <div *ngIf="dmSanPham.anh">
+                        <a (click)="openFile(dmSanPham.anhContentType, dmSanPham.anh)">
+                            <img [src]="'data:' + dmSanPham.anhContentType + ';base64,' + dmSanPham.anh" style="max-width: 100%;" alt="dmSanPham image"/>
+                        </a>
+                        {{ dmSanPham.anhContentType }}, {{ byteSize(dmSanPham.anh) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.soDaBan">So Da Ban</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.soDaBan }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmSanPham.trangThai">Trang Thai</span></dt>
+                <dd>
+                    <span>{{ dmSanPham.trangThai }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dm-san-pham', dmSanPham.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

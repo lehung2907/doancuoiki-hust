@@ -9,10 +9,10 @@
                 </div>
                 <div style="width: 50px; height: 30px">
                 </div>
-                <div class="input-group" style="width:300px; height: 30px">
-                    <input type="text" placeholder="Search..." style="width:250px; height: 30px">
+                <div class="input-group" style="width:330px; height: 30px">
+                    <input type="text" placeholder="Search..." style="width:300px; height: 30px">
                     <br/>
-                    <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;">
+                    <button type="button" class="btn btn-group" style="margin-left: -40px; z-index: 100;">
                         <i class="fa fa-search fa-lg" type="submit"></i>
                     </button>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-1">
                     <div class="info-text" style="font-size: 12px">
-                        <a>Giỏ hàng</a>
+                        <a routerLink="dm-gio-hang" routerLinkActive="active">Giỏ hàng</a>
                     </div>
                 </div>
                 <div class="media align-items-center col-lg-0">
@@ -52,7 +52,8 @@
                     <div class="main-menu" [ngSwitch]="isAuthenticated()">
                         <ul>
                             <li class="has-child">
-                                <a jhiTranslate="global.menu.entities.tivi" style="height: 100px; vertical-align: middle"></a>
+                                <a routerLink="dm-san-pham" routerLinkActive="active"
+                                   jhiTranslate="global.menu.entities.tivi" style="height: 100px; vertical-align: middle"></a>
 <!--                                <ul class="drop-menu">-->
 <!--                                    <li><a jhiTranslate="global.menu.entities.tivi"></a></li>-->
 <!--                                    <li><a jhiTranslate="global.menu.entities.tivi"></a></li>-->
@@ -99,14 +100,14 @@
                                 </ul>
                             </li>
                             <li *ngSwitchCase="true">
-                                <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active"
+                                <a routerLink="account/settings" routerLinkActive="active"
                                    (click)="collapseNavbar()">
                                     <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
                                     <span>Settings</span>
                                 </a>
                             </li>
                             <li *ngSwitchCase="false">
-                                <a class="dropdown-item" routerLink="account/register" routerLinkActive="active"
+                                <a routerLink="account/register" routerLinkActive="active"
                                    (click)="collapseNavbar()">
                                     <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
                                     <span>Register</span>
@@ -153,6 +154,18 @@
 <!--                        <a class="dropdown-item" routerLink="dm-dien-thoai" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">-->
 <!--                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>-->
 <!--                            <span jhiTranslate="global.menu.entities.dmDienThoai">Dm Dien Thoai</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--<li>-->
+<!--                        <a class="dropdown-item"  [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">-->
+<!--                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>-->
+<!--                            <span jhiTranslate="global.menu.entities.dmSanPham">Dm San Pham</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--<li>-->
+<!--                        <a class="dropdown-item" routerLink="dm-gio-hang" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">-->
+<!--                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>-->
+<!--                            <span jhiTranslate="global.menu.entities.dmGioHang">Dm Gio Hang</span>-->
 <!--                        </a>-->
 <!--                    </li>-->
 <!--                            &lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;-->

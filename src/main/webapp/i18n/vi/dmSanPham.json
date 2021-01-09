@@ -1,0 +1,29 @@
+{
+  "sophiaApp": {
+    "dmSanPham": {
+      "home": {
+        "title": "Dm San Phams",
+        "createLabel": "Thêm mới một Dm San Pham",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Dm San Pham",
+        "notFound": "No Dm San Phams found"
+      },
+      "created": "Một Dm San Pham mới được tạo với định danh {{ param }}",
+      "updated": "Một Dm San Pham cập nhật với định danh {{ param }}",
+      "deleted": "Một Dm San Pham đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Dm San Pham {{ id }}?"
+      },
+      "detail": {
+        "title": "Dm San Pham"
+      },
+      "loaiSanPham": "Loai San Pham",
+      "thuongHieu": "Thuong Hieu",
+      "ten": "Ten",
+      "gia": "Gia",
+      "moTa": "Mo Ta",
+      "anh": "Anh",
+      "soDaBan": "So Da Ban",
+      "trangThai": "Trang Thai"
+    }
+  }
+}

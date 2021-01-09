@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-dm-san-pham-heading" jhiTranslate="sophiaApp.dmSanPham.home.createOrEditLabel">Create or edit a Dm San Pham</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.loaiSanPham" for="field_loaiSanPham">Loai San Pham</label>
+                    <input type="text" class="form-control" name="loaiSanPham" id="field_loaiSanPham"
+                           formControlName="loaiSanPham"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.thuongHieu" for="field_thuongHieu">Thuong Hieu</label>
+                    <input type="text" class="form-control" name="thuongHieu" id="field_thuongHieu"
+                           formControlName="thuongHieu"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.ten" for="field_ten">Ten</label>
+                    <input type="text" class="form-control" name="ten" id="field_ten"
+                           formControlName="ten"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.gia" for="field_gia">Gia</label>
+                    <input type="text" class="form-control" name="gia" id="field_gia"
+                           formControlName="gia"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.moTa" for="field_moTa">Mo Ta</label>
+                    <input type="text" class="form-control" name="moTa" id="field_moTa"
+                           formControlName="moTa"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.anh" for="field_anh">Anh</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('anhContentType')!.value + ';base64,' + editForm.get('anh')!.value" style="max-height: 100px;" *ngIf="editForm.get('anh')!.value" alt="dmSanPham image"/>
+                        <div *ngIf="editForm.get('anh')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('anhContentType')!.value }}, {{ byteSize(editForm.get('anh')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('anh', 'anhContentType', 'file_anh')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_anh" (change)="setFileData($event, 'anh', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="anh" id="field_anh"
+                           formControlName="anh"/>
+                    <input type="hidden" class="form-control" name="anhContentType" id="field_anhContentType"
+                           formControlName="anhContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.soDaBan" for="field_soDaBan">So Da Ban</label>
+                    <input type="number" class="form-control" name="soDaBan" id="field_soDaBan"
+                           formControlName="soDaBan"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sophiaApp.dmSanPham.trangThai" for="field_trangThai">Trang Thai</label>
+                    <input type="text" class="form-control" name="trangThai" id="field_trangThai"
+                           formControlName="trangThai"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

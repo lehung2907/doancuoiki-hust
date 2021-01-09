@@ -5,6 +5,11 @@ import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { DmSanPhamService } from 'app/entities/dm-san-pham/dm-san-pham.service';
+import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
+import { HttpResponse } from '@angular/common/http';
+import { JhiDataUtils } from 'ng-jhipster';
+import { DmGioHangService } from 'app/entities/dm-gio-hang/dm-gio-hang.service';
 
 @Component({
   selector: 'jhi-home',
@@ -39,11 +44,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       desc: '',
     },
   ];
+  dmSanPhams?: IDmSanPham[];
 
   account: Account | null = null;
   authSubscription?: Subscription;
 
-  constructor(private accountService: AccountService, private loginModalService: LoginModalService, private _config: NgbCarouselConfig) {
+  constructor(
+    private accountService: AccountService,
+    private loginModalService: LoginModalService,
+    private _config: NgbCarouselConfig,
+    protected dmSanPhamService: DmSanPhamService,
+    protected dataUtils: JhiDataUtils,
+    protected dmGioHangService: DmGioHangService
+  ) {
     _config.interval = 3000;
     _config.pauseOnHover = true;
     _config.showNavigationArrows = false;
@@ -62,7 +75,27 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.authSubscription.unsubscribe();
     }
   }
+
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+    this.dmSanPhamService.query().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
+  }
+
+  trackId(index: number, item: IDmSanPham): number {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+    return item.id!;
+  }
+
+  openFile(contentType = '', base64String: string): void {
+    return this.dataUtils.openFile(contentType, base64String);
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  addToCart(product: any) {
+    console.log(product);
+    this.dmGioHangService.addCart(product);
   }
 }

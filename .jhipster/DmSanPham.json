@@ -1,0 +1,49 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "loaiSanPham",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thuongHieu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ten",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "moTa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anh",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "soDaBan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "trangThai",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210109103831",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "dm_san_pham",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dmGioHang">
+            <h2><span jhiTranslate="sophiaApp.dmGioHang.detail.title">Dm Gio Hang</span> {{ dmGioHang.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.userId">User Id</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.dmSanPhamId">Dm San Pham Id</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.dmSanPhamId }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.dmMauId">Dm Mau Id</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.dmMauId }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.soLuong">So Luong</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.soLuong }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.gia">Gia</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.gia }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.hoaDon">Hoa Don</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.hoaDon }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dm-gio-hang', dmGioHang.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sophiaApp.dmSanPham.home.title">Dm San Phams</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dm-san-pham" [routerLink]="['/dm-san-pham/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span jhiTranslate="sophiaApp.dmSanPham.home.createLabel"></span>
+        </button>
+    </h2>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="dmSanPhams?.length === 0">
+        <span jhiTranslate="sophiaApp.dmSanPham.home.notFound">No dmSanPhams found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="dmSanPhams && dmSanPhams.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.loaiSanPham">Loai San Pham</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.thuongHieu">Thuong Hieu</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.ten">Ten</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.gia">Gia</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.moTa">Mo Ta</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.anh">Anh</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.soDaBan">So Da Ban</span></th>
+                    <th scope="col" ><span jhiTranslate="sophiaApp.dmSanPham.trangThai">Trang Thai</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dmSanPham of dmSanPhams ;trackBy: trackId">
+                    <td><a [routerLink]="['/dm-san-pham', dmSanPham.id, 'view']">{{ dmSanPham.id }}</a></td>
+                    <td>{{ dmSanPham.loaiSanPham }}</td>
+                    <td>{{ dmSanPham.thuongHieu }}</td>
+                    <td>{{ dmSanPham.ten }}</td>
+                    <td>{{ dmSanPham.gia }}</td>
+                    <td>{{ dmSanPham.moTa }}</td>
+                    <td>
+                        <a *ngIf="dmSanPham.anh" (click)="openFile(dmSanPham.anhContentType, dmSanPham.anh)">
+                            <img [src]="'data:' + dmSanPham.anhContentType + ';base64,' + dmSanPham.anh" style="max-height: 30px;" alt="dmSanPham image"/>
+                        </a>
+                        <span *ngIf="dmSanPham.anh">{{ dmSanPham.anhContentType }}, {{ byteSize(dmSanPham.anh) }}</span>
+                    </td>
+                    <td>{{ dmSanPham.soDaBan }}</td>
+                    <td>{{ dmSanPham.trangThai }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/dm-san-pham', dmSanPham.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/dm-san-pham', dmSanPham.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(dmSanPham)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

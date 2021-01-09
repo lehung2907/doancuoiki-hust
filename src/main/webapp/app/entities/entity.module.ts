@@ -8,6 +8,14 @@ import { RouterModule } from '@angular/router';
         path: 'dm-dien-thoai',
         loadChildren: () => import('./dm-dien-thoai/dm-dien-thoai.module').then(m => m.SophiaDmDienThoaiModule),
       },
+      {
+        path: 'dm-san-pham',
+        loadChildren: () => import('./dm-san-pham/dm-san-pham.module').then(m => m.SophiaDmSanPhamModule),
+      },
+      {
+        path: 'dm-gio-hang',
+        loadChildren: () => import('./dm-gio-hang/dm-gio-hang.module').then(m => m.SophiaDmGioHangModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

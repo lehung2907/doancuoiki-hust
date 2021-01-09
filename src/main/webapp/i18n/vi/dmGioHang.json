@@ -1,0 +1,27 @@
+{
+  "sophiaApp": {
+    "dmGioHang": {
+      "home": {
+        "title": "Dm Gio Hangs",
+        "createLabel": "Thêm mới một Dm Gio Hang",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Dm Gio Hang",
+        "notFound": "No Dm Gio Hangs found"
+      },
+      "created": "Một Dm Gio Hang mới được tạo với định danh {{ param }}",
+      "updated": "Một Dm Gio Hang cập nhật với định danh {{ param }}",
+      "deleted": "Một Dm Gio Hang đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Dm Gio Hang {{ id }}?"
+      },
+      "detail": {
+        "title": "Dm Gio Hang"
+      },
+      "userId": "User Id",
+      "dmSanPhamId": "Dm San Pham Id",
+      "dmMauId": "Dm Mau Id",
+      "soLuong": "So Luong",
+      "gia": "Gia",
+      "hoaDon": "Hoa Don"
+    }
+  }
+}

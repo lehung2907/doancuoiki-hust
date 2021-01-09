@@ -20,48 +20,25 @@
     </ngb-carousel>
 </div>
 
-<!--<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">-->
-<!--    <ol class="carousel-indicators">-->
-<!--        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"></li>-->
-<!--        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"></li>-->
-<!--        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"></li>-->
-<!--    </ol>-->
-
-<!--    <div class="carousel-inner">-->
-<!--        <div class="carousel-item active">-->
-<!--            <img src="../../content/assets/baner/wall4.png" class="d-block w-100" alt="Image">-->
-<!--            <div class="carousel-caption d-none d-md-block">-->
-<!--                <h5>First slide label</h5>-->
-<!--                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="carousel-item">-->
-<!--            <img src="../../content/assets/baner/wall4.png" class="d-block w-100" alt="Image">-->
-<!--            <div class="carousel-caption d-none d-md-block">-->
-<!--                <h5>Second slide label</h5>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="carousel-item">-->
-<!--            <img src="../../content/assets/baner/wall4.png" class="d-block w-100" alt="Image">-->
-<!--            <div class="carousel-caption d-none d-md-block">-->
-<!--                <h5>Third slide label</h5>-->
-<!--                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <a class="carousel-control-prev" href="#carouselBasicExample" role="button" data-mdb-slide="prev">-->
-<!--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--        <span class="visually-hidden">Previous</span>-->
-<!--    </a>-->
-<!--    <a class="carousel-control-next" href="#carouselBasicExample" role="button" data-mdb-slide="next">-->
-<!--        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--        <span class="visually-hidden">Next</span>-->
-<!--    </a>-->
-<!--</div>-->
-<!--<script>-->
-
-<!--</script>-->
+<div class="container">
+        <div *ngIf="dmSanPhams && dmSanPhams.length > 0">
+            <div class="row" style="padding: 15px">
+                <div *ngFor="let product of dmSanPhams">
+<!--                    <div style="width: 227px; height: 266px; border: 1px solid #c5c7c5;">-->
+                        <div class="column">
+                            <td>
+                                <a *ngIf="product.anh" (click)="openFile(product.anhContentType, product.anh)">
+                                    <img [src]="'data:' + product.anhContentType + ';base64,' + product.anh" style="width: 155px; height: 200px" alt="dmSanPham image"/>
+                                </a>
+                            </td>
+                            <div><span>{{product.gia}}</span></div>
+                            <div><a><h5>{{product.ten}}</h5></a></div>
+                            <div class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                                <a (click)="addToCart(product)" mat-raised-button color="primary">ADD TO CART </a>
+                            </div>
+                        </div>
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+</div>
