@@ -1,51 +1,50 @@
-<div class="row justify-content-center">
-    <div class="col-8">
+<div class="container">
+    <div class="col-12">
         <div *ngIf="dmSanPham">
-            <h2><span jhiTranslate="sophiaApp.dmSanPham.detail.title">Dm San Pham</span> {{ dmSanPham.id }}</h2>
-
+            <br>
+            <h2><p><span>{{ dmSanPham.ten }}</span></p></h2>
             <hr>
-
-            <jhi-alert-error></jhi-alert-error>
-
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.loaiSanPham">Loai San Pham</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.loaiSanPham }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.thuongHieu">Thuong Hieu</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.thuongHieu }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.ten">Ten</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.ten }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.gia">Gia</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.gia }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.moTa">Mo Ta</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.moTa }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.anh">Anh</span></dt>
-                <dd>
+            <div class="row">
+                <div class="column col-md-4">
                     <div *ngIf="dmSanPham.anh">
-                        <a (click)="openFile(dmSanPham.anhContentType, dmSanPham.anh)">
-                            <img [src]="'data:' + dmSanPham.anhContentType + ';base64,' + dmSanPham.anh" style="max-width: 100%;" alt="dmSanPham image"/>
-                        </a>
-                        {{ dmSanPham.anhContentType }}, {{ byteSize(dmSanPham.anh) }}
+                        <img [src]="'data:' + dmSanPham.anhContentType + ';base64,' + dmSanPham.anh" style="width: 320px; height: 368px" alt="dmSanPham image"/>
                     </div>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.soDaBan">So Da Ban</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.soDaBan }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.dmSanPham.trangThai">Trang Thai</span></dt>
-                <dd>
-                    <span>{{ dmSanPham.trangThai }}</span>
-                </dd>
-            </dl>
+                </div>
+                <div class="column col-md-5">
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.loaiSanPham">Loai San Pham</span></dt>
+
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.thuongHieu">Thuong Hieu</span></dt>
+                    <dd>
+                        <span>{{ dmSanPham.thuongHieu }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.ten">Ten</span></dt>
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.gia">Gia</span></dt>
+                    <dd>
+                        <span>{{ dmSanPham.gia }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.moTa">Mo Ta</span></dt>
+                    <dd>
+                        <span>{{ dmSanPham.moTa }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.anh">Anh</span></dt>
+
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.soDaBan">So Da Ban</span></dt>
+                    <dd>
+                        <span>{{ dmSanPham.soDaBan }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.dmSanPham.trangThai">Trang Thai</span></dt>
+                    <dd>
+                        <span>{{ dmSanPham.trangThai }}</span>
+                    </dd>
+                </div>
+                <div class="column col-md-3">
+                    <div style="border: 1px solid gray; height: 200px; padding: 10px">
+                        <div class="logoBox-img" style="width: 30px; height: 30px"></div><span>Bộ sản phẩm gồm: Phụ kiện fullbox, nguyên seal</span>
+                        <div class="logoBaoHanh-img" style="width: 30px; height: 30px"></div><span>Bảo hành chính hãng 12 tháng</span>
+                        <div class="logo1doi1-img" style="width: 30px; height: 30px"></div><span>Lỗi là đổi mới trong 1 tháng</span>
+                    </div>
+                </div>
+            </div>
 
             <button type="submit"
                     (click)="previousState()"

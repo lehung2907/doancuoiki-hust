@@ -1,14 +1,15 @@
-<div class="container">
-    <ngb-carousel>
-        <ng-template *ngFor="let pelicula of peliculas" ngbSlide>
-            <div class="picsum-img-wrapper">
-                <img src="{{pelicula.img}}" alt="Random first slide">
-            </div>
-            <div class="carousel-caption">
-                <h3>{{pelicula.name}}</h3>
-                <p>{{pelicula.desc}}</p>
-            </div>
-        </ng-template>
+<div class="">
+    <div class="container">
+        <ngb-carousel>
+            <ng-template *ngFor="let pelicula of peliculas" ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{pelicula.img}}" alt="Random first slide">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{pelicula.name}}</h3>
+                    <p>{{pelicula.desc}}</p>
+                </div>
+            </ng-template>
             <a class="carousel-control-prev" href="#carouselBasicExample" role="button" data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -17,28 +18,51 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </a>
-    </ngb-carousel>
-</div>
+        </ngb-carousel>
+    </div>
 
-<div class="container">
+    <div class="container">
         <div *ngIf="dmSanPhams && dmSanPhams.length > 0">
-            <div class="row" style="padding: 15px">
+            <div class="row" style="padding: 15px;">
                 <div *ngFor="let product of dmSanPhams">
-<!--                    <div style="width: 227px; height: 266px; border: 1px solid #c5c7c5;">-->
-                        <div class="column">
-                            <td>
-                                <a *ngIf="product.anh" (click)="openFile(product.anhContentType, product.anh)">
-                                    <img [src]="'data:' + product.anhContentType + ';base64,' + product.anh" style="width: 155px; height: 200px" alt="dmSanPham image"/>
-                                </a>
-                            </td>
-                            <div><span>{{product.gia}}</span></div>
-                            <div><a><h5>{{product.ten}}</h5></a></div>
-                            <div class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                                <a (click)="addToCart(product)" mat-raised-button color="primary">ADD TO CART </a>
+                    <div class="column">
+                        <div style="border: 1px solid #e2dbdb;  width: 222px; height: 350px;">
+                            <label jhiTranslate="sophiaApp.dmSanPham.tragop" class="btn btn-warning" style="margin: 6px; padding: 3px; color: #131313; width: 70px; height: 20px; font-size: 10px"></label>
+                            <div [routerLink]="['/dm-san-pham', product.id, 'view']" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;">
+                                <img [src]="'data:' + product.anhContentType + ';base64,' + product.anh" alt="dmSanPham image"/>
+                            </div>
+                            <br>
+                            <h6 style="margin-left: 10px;">{{product.ten}}</h6>
+                            <h6 style="margin-left: 10px;">{{product.gia}}₫</h6>
+                            <div style="margin-left: 10px;" [routerLink]="['/dm-san-pham', product.id, 'view']" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                                <a (click)="addToCart(product)" mat-raised-button color="primary">  ADD TO CART </a>
                             </div>
                         </div>
-<!--                    </div>-->
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <div *ngIf="dmSanPhams && dmSanPhams.length > 0">
+            <div class="row" style="padding: 15px;">
+                <div *ngFor="let product of dmSanPhams">
+                    <div class="column">
+                        <div style="border: 1px solid #e2dbdb;  width: 222px; height: 350px;">
+                            <label jhiTranslate="sophiaApp.dmSanPham.tragop" class="btn btn-warning" style="margin: 6px; padding: 3px; color: #131313; width: 70px; height: 20px; font-size: 10px"></label>
+                            <div [routerLink]="['/dm-san-pham', product.id, 'view']" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;">
+                                <img [src]="'data:' + product.anhContentType + ';base64,' + product.anh" alt="dmSanPham image"/>
+                            </div>
+                            <br>
+                            <h6 style="margin-left: 10px;">{{product.ten}}</h6>
+                            <h6 style="margin-left: 10px;">{{product.gia}}₫</h6>
+                            <div style="margin-left: 10px;" [routerLink]="['/dm-san-pham', product.id, 'view']" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                                <a (click)="addToCart(product)" mat-raised-button color="primary">  ADD TO CART </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

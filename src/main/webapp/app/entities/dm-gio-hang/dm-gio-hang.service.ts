@@ -37,9 +37,7 @@ export class DmGioHangService {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  addCart(product: any) {
-    console.log(product);
-    const options = createRequestOption(product);
-    return this.http.get<IDmGioHang[]>(this.resourceUrl, { params: options, observe: 'response' });
+  addCart(req: any): Observable<EntityArrayResponseType> {
+    return this.http.get<IDmGioHang[]>(this.resourceUrl, { params: req, observe: 'response' });
   }
 }

@@ -94,8 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.dataUtils.byteSize(base64String);
   }
 
-  addToCart(product: any) {
-    console.log(product);
-    this.dmGioHangService.addCart(product);
+  addToCart(req: any): void {
+    this.dmGioHangService.addCart(req);
   }
 }

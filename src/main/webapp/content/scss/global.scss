@@ -48,7 +48,7 @@ Browser Upgrade Prompt
 ========================================================================== */
 .browserupgrade {
   margin: 0.2em 0;
-  background: #ccc;
+  background: white;
   color: #000;
   padding: 0.2em 0;
 }
@@ -73,6 +73,7 @@ Generic styles
   padding: 1.5%;
   margin-top: 20px;
   border: none;
+  background-color: white;
 }
 
 .error {
@@ -98,7 +99,7 @@ Generic styles
 }
 
 .readonly {
-  background-color: #eee;
+  background-color: white;
   opacity: 1;
 }
 
