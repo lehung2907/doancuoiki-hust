@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
 import { DmSanPhamService } from './dm-san-pham.service';
 import { DmSanPhamDeleteDialogComponent } from './dm-san-pham-delete-dialog.component';
+import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
 
 @Component({
   selector: 'jhi-dm-san-pham',
@@ -20,7 +21,8 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
     protected dmSanPhamService: DmSanPhamService,
     protected dataUtils: JhiDataUtils,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    protected dmGioHangService: DmGioHangService
   ) {}
 
   loadAll(): void {
@@ -58,5 +60,9 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
   delete(dmSanPham: IDmSanPham): void {
     const modalRef = this.modalService.open(DmSanPhamDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.dmSanPham = dmSanPham;
+  }
+
+  addToCart(req: any): void {
+    this.dmGioHangService.addCart(req);
   }
 }

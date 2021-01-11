@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DmSanPhamService } from 'app/entities/dm-san-pham/dm-san-pham.service';
 import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
 import { HttpResponse } from '@angular/common/http';
-import { JhiDataUtils } from 'ng-jhipster';
+import { JhiDataUtils, JhiEventManager } from 'ng-jhipster';
 import { DmGioHangService } from 'app/entities/dm-gio-hang/dm-gio-hang.service';
 
 @Component({
@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   account: Account | null = null;
   authSubscription?: Subscription;
+  req: any;
 
   constructor(
     private accountService: AccountService,
@@ -55,7 +56,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     private _config: NgbCarouselConfig,
     protected dmSanPhamService: DmSanPhamService,
     protected dataUtils: JhiDataUtils,
-    protected dmGioHangService: DmGioHangService
+    protected dmGioHangService: DmGioHangService,
+    public activeModal: NgbActiveModal,
+    protected eventManager: JhiEventManager
   ) {
     _config.interval = 3000;
     _config.pauseOnHover = true;
@@ -76,9 +79,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  loadAll(): void {
+    this.dmSanPhamService.query().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
+  }
+
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
-    this.dmSanPhamService.query().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
+    this.loadAll();
   }
 
   trackId(index: number, item: IDmSanPham): number {
