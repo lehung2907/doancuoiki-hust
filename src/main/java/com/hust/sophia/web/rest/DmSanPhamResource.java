@@ -115,4 +115,18 @@ public class DmSanPhamResource {
         dmSanPhamRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/dm-san-phams/dienthoais")
+    public List<DmSanPham> getAllDmSanPhamDienThoai() {
+        log.debug("REST request to get all DmSanPhams");
+        List<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPham("phone");
+        return result;
+    }
+
+    @GetMapping("/dm-san-phams/laptops")
+    public List<DmSanPham> getAllDmSanPhamLapTop() {
+        log.debug("REST request to get all DmSanPhams");
+        List<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPham("laptop");
+        return result;
+    }
 }

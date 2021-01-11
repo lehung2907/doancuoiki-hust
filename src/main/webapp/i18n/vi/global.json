@@ -20,6 +20,11 @@
           "dienthoai": "Điện thoại",
           "iphone": "Iphone",
           "samsung": "Samsung"
+        },
+        "laptop": {
+          "laptop": "Laptop",
+          "iphone": "Iphone",
+          "samsung": "Samsung"
         }
       },
       "account": {

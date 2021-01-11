@@ -10,10 +10,10 @@ import { DmSanPhamService } from '../dm-san-pham/dm-san-pham.service';
 import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
 
 @Component({
-  selector: 'jhi-dm-dien-thoai',
-  templateUrl: './dm-dien-thoai.component.html',
+  selector: 'jhi-dm-lap-top',
+  templateUrl: './dm-lap-top.component.html',
 })
-export class DmDienThoaiComponent implements OnInit, OnDestroy {
+export class DmLapTopComponent implements OnInit, OnDestroy {
   eventSubscriber?: Subscription;
   dmSanPhams?: IDmSanPham[];
 
@@ -26,7 +26,7 @@ export class DmDienThoaiComponent implements OnInit, OnDestroy {
   ) {}
 
   loadAll(): void {
-    this.dmSanPhamService.queryAllDienThoai().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
+    this.dmSanPhamService.queryAllLapTop().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
   }
 
   ngOnInit(): void {
