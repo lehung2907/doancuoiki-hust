@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IDmGioHang } from 'app/shared/model/dm-gio-hang.model';
-import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
 
 type EntityResponseType = HttpResponse<IDmGioHang>;
 type EntityArrayResponseType = HttpResponse<IDmGioHang[]>;

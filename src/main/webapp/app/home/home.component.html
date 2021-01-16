@@ -10,14 +10,10 @@
                     <p>{{pelicula.desc}}</p>
                 </div>
             </ng-template>
-            <a class="carousel-control-prev" href="#carouselBasicExample" role="button" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselBasicExample" role="button" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </a>
+            <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+                <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+                <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+            </div>
         </ngb-carousel>
     </div>
 
@@ -63,6 +59,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="calculation d-flex justify-content-between">
+            <div class="info-cal">
+                <div class="sum">
+                    <h5><span jhiTranslate="page.sum.totalItem"></span>{{paging.totalItem}}</h5>
+                </div>
+                <div class="detail">
+                    <h5 jhiTranslate="page.sum.itemPerPage"></h5>
+                    <select [(ngModel)]="paging.pageSize" (ngModelChange)="loadAll()">
+                        <option *ngFor="let op of paging.pageSizes" [ngValue]="op">{{op}}</option>
+                    </select>
+                </div>
+            </div>
+            <ngb-pagination [collectionSize]="paging.totalItem" [(page)]="paging.pageIndex" (pageChange)="loadAll()"
+                            [maxSize]="paging.maxSize" [pageSize]="paging.pageSize"
+                            [rotate]="true" [ellipses]="paging.ellipses" [boundaryLinks]="true"></ngb-pagination>
         </div>
     </div>
 </div>

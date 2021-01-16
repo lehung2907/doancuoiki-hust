@@ -9,8 +9,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from 'app/home/home.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -49,8 +48,7 @@ export class NavbarComponent implements OnInit {
   }
 
   search(): void {
-    const modalRef = this.modalService.open(HomeComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.req = this.timKiem;
+    this.router.navigateByUrl('/?q=' + this.timKiem);
   }
 
   changeLanguage(languageKey: string): void {

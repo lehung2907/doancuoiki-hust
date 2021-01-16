@@ -5,6 +5,42 @@
 
 // --------------------------------------------------- custom --------------------------------------------
 
+.logo1doi1-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/icon1doi1.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoBaoHanh-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/iconbaoHanh.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoBox-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/iconbox.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoTichXanh-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/icontichXanh.png') no-repeat center center;
+  background-size: contain;
+}
+
 .btn-color {
   transition: 0.3s ease-out;
   &.firrt-cl {

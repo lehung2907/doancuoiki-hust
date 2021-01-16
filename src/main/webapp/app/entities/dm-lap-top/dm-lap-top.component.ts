@@ -8,6 +8,7 @@ import { IDmDienThoai } from 'app/shared/model/dm-dien-thoai.model';
 import { IDmSanPham } from '../../shared/model/dm-san-pham.model';
 import { DmSanPhamService } from '../dm-san-pham/dm-san-pham.service';
 import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
+import { PagingModel } from '../../shared/util/paging.model';
 
 @Component({
   selector: 'jhi-dm-lap-top',
@@ -16,6 +17,8 @@ import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
 export class DmLapTopComponent implements OnInit, OnDestroy {
   eventSubscriber?: Subscription;
   dmSanPhams?: IDmSanPham[];
+  itemSearch?: any;
+  paging = new PagingModel();
 
   constructor(
     protected dmSanPhamService: DmSanPhamService,
@@ -23,10 +26,33 @@ export class DmLapTopComponent implements OnInit, OnDestroy {
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
     protected dmGioHangService: DmGioHangService
-  ) {}
+  ) {
+    this.itemSearch = {
+      page: this.paging.pageIndex,
+      size: this.paging.pageSize,
+    };
+  }
 
   loadAll(): void {
-    this.dmSanPhamService.queryAllLapTop().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
+    this.dmSanPhamService.queryAllLapTop(this.itemSearch).subscribe(
+      (res: HttpResponse<Array<any>>) => {
+        if (res.body) {
+          this.dmSanPhams = res.body || [];
+          if (res.headers) {
+            this.paging.totalItem = Number(res.headers.get('X-Total-Count'));
+          } else {
+            this.paging.totalItem = 0;
+          }
+        } else {
+          this.paging.totalItem = 0;
+          this.dmSanPhams = [];
+        }
+      },
+      () => {
+        this.paging.totalItem = 0;
+        this.dmSanPhams = [];
+      }
+    );
   }
 
   ngOnInit(): void {

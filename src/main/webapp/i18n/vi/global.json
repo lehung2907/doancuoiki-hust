@@ -151,5 +151,11 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
+  "page": {
+    "sum": {
+      "totalItem": "Tổng số bản ghi: ",
+      "itemPerPage": "Số bản ghi mỗi trang: "
+    }
+  },
   "footer": "Đây là chân trang của bạn"
 }

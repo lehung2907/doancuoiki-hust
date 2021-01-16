@@ -7,7 +7,7 @@ import { HomeComponent } from './home.component';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports: [SophiaSharedModule, RouterModule.forChild([HOME_ROUTE])],
+  imports: [SophiaSharedModule, RouterModule.forChild([...HOME_ROUTE])],
   declarations: [HomeComponent],
   providers: [NgbActiveModal],
 })

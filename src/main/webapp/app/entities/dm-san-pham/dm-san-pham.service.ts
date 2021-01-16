@@ -27,9 +27,12 @@ export class DmSanPhamService {
     return this.http.get<IDmSanPham>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  query(req?: any): Observable<EntityArrayResponseType> {
-    const options = createRequestOption(req);
-    return this.http.get<IDmSanPham[]>(this.resourceUrl, { params: options, observe: 'response' });
+  queryPageig(req?: any): Observable<EntityArrayResponseType> {
+    return this.http.get<Array<any>>(`${this.resourceUrl}/queryPageig`, { params: req, observe: 'response' });
+  }
+
+  queryKey(req: any): Observable<EntityArrayResponseType> {
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/keys`, { params: req, observe: 'response' });
   }
 
   queryAllDienThoai(req?: any): Observable<EntityArrayResponseType> {

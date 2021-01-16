@@ -19,4 +19,20 @@
             </div>
         </div>
     </div>
+    <div class="calculation d-flex justify-content-between">
+        <div class="info-cal">
+            <div class="sum">
+                <h5><span jhiTranslate="page.sum.totalItem"></span>{{paging.totalItem}}</h5>
+            </div>
+            <div class="detail">
+                <h5 jhiTranslate="page.sum.itemPerPage"></h5>
+                <select [(ngModel)]="paging.pageSize" (ngModelChange)="loadAll()">
+                    <option *ngFor="let op of paging.pageSizes" [ngValue]="op">{{op}}</option>
+                </select>
+            </div>
+        </div>
+        <ngb-pagination [collectionSize]="paging.totalItem" [(page)]="paging.pageIndex" (pageChange)="loadAll()"
+                        [maxSize]="paging.maxSize" [pageSize]="paging.pageSize"
+                        [rotate]="true" [ellipses]="paging.ellipses" [boundaryLinks]="true"></ngb-pagination>
+    </div>
 </div>
