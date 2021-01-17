@@ -2,7 +2,7 @@
   "sophiaApp": {
     "dmGioHang": {
       "home": {
-        "title": "Dm Gio Hangs",
+        "title": "GIỎ HÀNG",
         "createLabel": "Thêm mới một Dm Gio Hang",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Dm Gio Hang",
         "notFound": "No Dm Gio Hangs found"
@@ -16,12 +16,15 @@
       "detail": {
         "title": "Dm Gio Hang"
       },
-      "userId": "User Id",
+      "login": "Login",
       "dmSanPhamId": "Dm San Pham Id",
-      "dmMauId": "Dm Mau Id",
-      "soLuong": "So Luong",
-      "gia": "Gia",
-      "hoaDon": "Hoa Don"
+      "anhSp": "Ảnh",
+      "soLuong": "Số lượng",
+      "gia": "Giá",
+      "chiTiet": "Chi tiết sản phẩm",
+      "hoaDonId": "Hoa Don Id",
+      "tongTien": "Tổng tiền",
+      "thanhTien": "Thành tiền"
     }
   }
 }

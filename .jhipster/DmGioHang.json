@@ -1,0 +1,41 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "login",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dmSanPhamId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "anhSp",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "soLuong",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gia",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "hoaDonId",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20210117053808",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "dm_gio_hang",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

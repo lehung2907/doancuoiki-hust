@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dmGioHang">
+            <h2><span jhiTranslate="sophiaApp.dmGioHang.detail.title">Dm Gio Hang</span> {{ dmGioHang.id }}</h2>
+
+            <hr>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.login">Login</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.login }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.dmSanPhamId">Dm San Pham Id</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.dmSanPhamId }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.anhSp">Anh Sp</span></dt>
+                <dd>
+                    <div *ngIf="dmGioHang.anhSp">
+                        <a (click)="openFile(dmGioHang.anhSpContentType, dmGioHang.anhSp)">
+                            <img [src]="'data:' + dmGioHang.anhSpContentType + ';base64,' + dmGioHang.anhSp" style="max-width: 100%;" alt="dmGioHang image"/>
+                        </a>
+                        {{ dmGioHang.anhSpContentType }}, {{ byteSize(dmGioHang.anhSp) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.soLuong">So Luong</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.soLuong }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.gia">Gia</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.gia }}</span>
+                </dd>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.hoaDonId">Hoa Don Id</span></dt>
+                <dd>
+                    <span>{{ dmGioHang.hoaDonId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dm-gio-hang', dmGioHang.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
