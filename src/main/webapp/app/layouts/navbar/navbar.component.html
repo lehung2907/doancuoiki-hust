@@ -82,32 +82,20 @@
                             <li>
                                 <a href="">Trợ giúp</a>
                             </li>
-                            <li class="has-child" *ngIf="languages && languages.length > 1">
-                                <a>
-                                    <span>
-                                        <fa-icon icon="flag"></fa-icon>
-                                        <span jhiTranslate="global.menu.language">Language</span>
-                                    </span>
+                            <li *ngSwitchCase="true">
+                                <a routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                                    <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+                                    <span jhiTranslate="global.menu.account.password"></span>
                                 </a>
-                                <ul class="drop-menu">
-                                    <li *ngFor="let language of languages">
-                                        <a [jhiActiveMenu]="language" href="javascript:void(0);"
-                                           (click)="changeLanguage(language);collapseNavbar();">
-                                            {{ language | findLanguageFromKey }}
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li *ngSwitchCase="true">
-                                <a routerLink="account/settings" routerLinkActive="active"
-                                   (click)="collapseNavbar()">
+                                <a routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
                                     <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
                                     <span>Settings</span>
                                 </a>
                             </li>
                             <li *ngSwitchCase="false">
-                                <a routerLink="account/register" routerLinkActive="active"
-                                   (click)="collapseNavbar()">
+                                <a routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
                                     <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
                                     <span>Register</span>
                                 </a>

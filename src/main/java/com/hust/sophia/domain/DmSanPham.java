@@ -49,7 +49,50 @@ public class DmSanPham implements Serializable {
     @Column(name = "trang_thai")
     private String trangThai;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "cpu")
+    private String cpu;
+
+    @Column(name = "gpu")
+    private String gpu;
+
+    @Column(name = "boNho")
+    private Integer boNho;
+
+    @Column(name = "ram")
+    private Integer ram;
+
+    @Column(name = "man_hinh")
+    private String manHinh;
+
+    @Column(name = "camera")
+    private String camera;
+
+    @Column(name = "sim")
+    private String sim;
+
+    public DmSanPham() {
+    }
+
+    public DmSanPham(Long id, String loaiSanPham, String thuongHieu, String ten, String gia, String moTa, byte[] anh, String anhContentType, Integer soDaBan, String trangThai, String cpu, String gpu, Integer boNho, Integer ram, String manHinh, String camera, String sim) {
+        this.id = id;
+        this.loaiSanPham = loaiSanPham;
+        this.thuongHieu = thuongHieu;
+        this.ten = ten;
+        this.gia = gia;
+        this.moTa = moTa;
+        this.anh = anh;
+        this.anhContentType = anhContentType;
+        this.soDaBan = soDaBan;
+        this.trangThai = trangThai;
+        this.cpu = cpu;
+        this.gpu = gpu;
+        this.boNho = boNho;
+        this.ram = ram;
+        this.manHinh = manHinh;
+        this.camera = camera;
+        this.sim = sim;
+    }
+
     public Long getId() {
         return id;
     }
@@ -62,22 +105,12 @@ public class DmSanPham implements Serializable {
         return loaiSanPham;
     }
 
-    public DmSanPham loaiSanPham(String loaiSanPham) {
-        this.loaiSanPham = loaiSanPham;
-        return this;
-    }
-
     public void setLoaiSanPham(String loaiSanPham) {
         this.loaiSanPham = loaiSanPham;
     }
 
     public String getThuongHieu() {
         return thuongHieu;
-    }
-
-    public DmSanPham thuongHieu(String thuongHieu) {
-        this.thuongHieu = thuongHieu;
-        return this;
     }
 
     public void setThuongHieu(String thuongHieu) {
@@ -88,22 +121,12 @@ public class DmSanPham implements Serializable {
         return ten;
     }
 
-    public DmSanPham ten(String ten) {
-        this.ten = ten;
-        return this;
-    }
-
     public void setTen(String ten) {
         this.ten = ten;
     }
 
     public String getGia() {
         return gia;
-    }
-
-    public DmSanPham gia(String gia) {
-        this.gia = gia;
-        return this;
     }
 
     public void setGia(String gia) {
@@ -114,22 +137,12 @@ public class DmSanPham implements Serializable {
         return moTa;
     }
 
-    public DmSanPham moTa(String moTa) {
-        this.moTa = moTa;
-        return this;
-    }
-
     public void setMoTa(String moTa) {
         this.moTa = moTa;
     }
 
     public byte[] getAnh() {
         return anh;
-    }
-
-    public DmSanPham anh(byte[] anh) {
-        this.anh = anh;
-        return this;
     }
 
     public void setAnh(byte[] anh) {
@@ -140,22 +153,12 @@ public class DmSanPham implements Serializable {
         return anhContentType;
     }
 
-    public DmSanPham anhContentType(String anhContentType) {
-        this.anhContentType = anhContentType;
-        return this;
-    }
-
     public void setAnhContentType(String anhContentType) {
         this.anhContentType = anhContentType;
     }
 
     public Integer getSoDaBan() {
         return soDaBan;
-    }
-
-    public DmSanPham soDaBan(Integer soDaBan) {
-        this.soDaBan = soDaBan;
-        return this;
     }
 
     public void setSoDaBan(Integer soDaBan) {
@@ -166,46 +169,63 @@ public class DmSanPham implements Serializable {
         return trangThai;
     }
 
-    public DmSanPham trangThai(String trangThai) {
-        this.trangThai = trangThai;
-        return this;
-    }
-
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof DmSanPham)) {
-            return false;
-        }
-        return id != null && id.equals(((DmSanPham) o).id);
+    public String getCpu() {
+        return cpu;
     }
 
-    @Override
-    public int hashCode() {
-        return 31;
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "DmSanPham{" +
-            "id=" + getId() +
-            ", loaiSanPham='" + getLoaiSanPham() + "'" +
-            ", thuongHieu='" + getThuongHieu() + "'" +
-            ", ten='" + getTen() + "'" +
-            ", gia='" + getGia() + "'" +
-            ", moTa='" + getMoTa() + "'" +
-            ", anh='" + getAnh() + "'" +
-            ", anhContentType='" + getAnhContentType() + "'" +
-            ", soDaBan=" + getSoDaBan() +
-            ", trangThai='" + getTrangThai() + "'" +
-            "}";
+    public String getGpu() {
+        return gpu;
+    }
+
+    public void setGpu(String gpu) {
+        this.gpu = gpu;
+    }
+
+    public Integer getBoNho() {
+        return boNho;
+    }
+
+    public void setBoNho(Integer boNho) {
+        this.boNho = boNho;
+    }
+
+    public Integer getRam() {
+        return ram;
+    }
+
+    public void setRam(Integer ram) {
+        this.ram = ram;
+    }
+
+    public String getManHinh() {
+        return manHinh;
+    }
+
+    public void setManHinh(String manHinh) {
+        this.manHinh = manHinh;
+    }
+
+    public String getCamera() {
+        return camera;
+    }
+
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    public String getSim() {
+        return sim;
+    }
+
+    public void setSim(String sim) {
+        this.sim = sim;
     }
 }

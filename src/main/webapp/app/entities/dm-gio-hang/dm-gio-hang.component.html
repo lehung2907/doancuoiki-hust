@@ -1,19 +1,7 @@
-<div>
+<div class="container">
     <h2 id="page-heading">
         <span jhiTranslate="sophiaApp.dmGioHang.home.title">Dm Gio Hangs</span>
-
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dm-gio-hang" [routerLink]="['/dm-gio-hang/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="sophiaApp.dmGioHang.home.createLabel">
-            Create a new Dm Gio Hang
-            </span>
-        </button>
     </h2>
-
-    <jhi-alert-error></jhi-alert-error>
-
-    <jhi-alert></jhi-alert>
-
     <div class="alert alert-warning" id="no-result" *ngIf="dmGioHangs?.length === 0">
         <span jhiTranslate="sophiaApp.dmGioHang.home.notFound">No dmGioHangs found</span>
     </div>

@@ -59,7 +59,9 @@
       "confirmpassword.label": "Xác nhận mật khẩu mới",
       "confirmpassword.placeholder": "Nhập lại mật khẩu mới",
       "email.label": "Email",
-      "email.placeholder": "Nhập email của bạn"
+      "email.placeholder": "Nhập email của bạn",
+      "currentpassword.label": "Mật khẩu cũ",
+      "currentpassword.placeholder": "Nhập mật khẩu cũ"
     },
     "messages": {
       "info": {
