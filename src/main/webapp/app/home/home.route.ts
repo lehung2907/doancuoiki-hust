@@ -2,11 +2,21 @@ import { Route } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 
-export const HOME_ROUTE: Route = {
-  path: '',
-  component: HomeComponent,
-  data: {
-    authorities: [],
-    pageTitle: 'home.title',
+export const HOME_ROUTE: Route[] = [
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      authorities: [],
+      pageTitle: 'home.title',
+    },
   },
-};
+  {
+    path: 'search/:key',
+    component: HomeComponent,
+    data: {
+      authorities: [],
+      pageTitle: 'home.title',
+    },
+  },
+];

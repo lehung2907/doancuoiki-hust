@@ -4,7 +4,7 @@
   "relationships": [],
   "fields": [
     {
-      "fieldName": "userId",
+      "fieldName": "login",
       "fieldType": "String"
     },
     {
@@ -12,8 +12,9 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "dmMauId",
-      "fieldType": "Integer"
+      "fieldName": "anhSp",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
     },
     {
       "fieldName": "soLuong",
@@ -21,14 +22,14 @@
     },
     {
       "fieldName": "gia",
-      "fieldType": "String"
+      "fieldType": "Integer"
     },
     {
-      "fieldName": "hoaDon",
-      "fieldType": "String"
+      "fieldName": "hoaDonId",
+      "fieldType": "Integer"
     }
   ],
-  "changelogDate": "20210109143445",
+  "changelogDate": "20210117053808",
   "dto": "no",
   "searchEngine": false,
   "service": "no",

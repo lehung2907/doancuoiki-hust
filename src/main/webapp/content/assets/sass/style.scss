@@ -5,6 +5,42 @@
 
 // --------------------------------------------------- custom --------------------------------------------
 
+.logo1doi1-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/icon1doi1.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoBaoHanh-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/iconbaoHanh.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoBox-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/iconbox.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logoTichXanh-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/icontichXanh.png') no-repeat center center;
+  background-size: contain;
+}
+
 .btn-color {
   transition: 0.3s ease-out;
   &.firrt-cl {
@@ -422,21 +458,21 @@
             color: #1ba0e1;
           }
 
-          // &::after{
-          //     content: "\f105";
-          //     font-family: "fontawesome";
-          //     position: absolute;
-          //     top: 0px;
-          //     right: 10px;
-          //     font-size: 14px;
-          //     color: #606060;
-          //     -webkit-transition: all 0.25s ease;
-          //     -o-transition: all 0.25s ease;
-          //     transition: all 0.25s ease;
-          //     background: unset;
-          //     width: auto;
-          //     height: auto;
-          // }
+          &::after {
+            content: '\f105';
+            //font-family: "fontawesome";
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            font-size: 14px;
+            color: #606060;
+            -webkit-transition: all 0.25s ease;
+            -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            background: unset;
+            width: auto;
+            height: auto;
+          }
         }
       }
 
@@ -494,22 +530,22 @@
               padding-bottom: 8px;
               position: relative;
 
-              // &::after{
-              //     content: "\f105";
-              //     font-family: "fontawesome";
-              //     position: absolute;
-              //     top: 3.5px;
-              //     right: 10px;
-              //     font-size: 14px;
-              //     color: #606060;
-              //     -webkit-transition: all 0.25s ease;
-              //     -o-transition: all 0.25s ease;
-              //     transition: all 0.25s ease;
-              //     background: unset;
-              //     width: auto;
-              //     background-image: unset;
-              //     width: auto;
-              // }
+              &::after {
+                content: '\f105';
+                //font-family: "fontawesome";
+                position: absolute;
+                top: 3.5px;
+                right: 10px;
+                font-size: 14px;
+                color: #606060;
+                -webkit-transition: all 0.25s ease;
+                -o-transition: all 0.25s ease;
+                transition: all 0.25s ease;
+                background: unset;
+                width: auto;
+                background-image: unset;
+                width: auto;
+              }
 
               .sub-title {
                 font-size: 14px;
@@ -2353,7 +2389,7 @@
 
           &::after {
             content: '\f106';
-            font-family: 'fontawesome';
+            //font-family: 'fontawesome';
             font-size: 1em;
             transition: 0.3s all;
             color: #333333;
@@ -2475,7 +2511,7 @@
 
         &::before {
           content: '\f067';
-          font-family: 'fontawesome';
+          //font-family: 'fontawesome';
           font-size: 7px;
           width: 10px;
           height: 10px;

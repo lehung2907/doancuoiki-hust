@@ -7,12 +7,12 @@ import { flatMap } from 'rxjs/operators';
 import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IDmDienThoai, DmDienThoai } from 'app/shared/model/dm-dien-thoai.model';
-import { DmDienThoaiService } from './dm-dien-thoai.service';
-import { DmDienThoaiComponent } from './dm-dien-thoai.component';
+import { DmLapTopService } from './dm-lap-top.service';
+import { DmLapTopComponent } from './dm-lap-top.component';
 
 @Injectable({ providedIn: 'root' })
-export class DmDienThoaiResolve implements Resolve<IDmDienThoai> {
-  constructor(private service: DmDienThoaiService, private router: Router) {}
+export class DmLapTopRoute implements Resolve<IDmDienThoai> {
+  constructor(private service: DmLapTopService, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<IDmDienThoai> | Observable<never> {
     const id = route.params['id'];
@@ -32,13 +32,13 @@ export class DmDienThoaiResolve implements Resolve<IDmDienThoai> {
   }
 }
 
-export const dmDienThoaiRoute: Routes = [
+export const dmLapTopRoute: Routes = [
   {
     path: '',
-    component: DmDienThoaiComponent,
+    component: DmLapTopComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'sophiaApp.dmDienThoai.home.title',
+      pageTitle: 'sophiaApp.dmLapTop.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

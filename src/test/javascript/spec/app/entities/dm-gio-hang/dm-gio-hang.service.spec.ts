@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(DmGioHangService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new DmGioHang(0, 'AAAAAAA', 0, 0, 0, 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new DmGioHang(0, 'AAAAAAA', 0, 'image/png', 'AAAAAAA', 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,12 +54,12 @@ describe('Service Tests', () => {
       it('should update a DmGioHang', () => {
         const returnedFromService = Object.assign(
           {
-            userId: 'BBBBBB',
+            login: 'BBBBBB',
             dmSanPhamId: 1,
-            dmMauId: 1,
+            anhSp: 'BBBBBB',
             soLuong: 1,
-            gia: 'BBBBBB',
-            hoaDon: 'BBBBBB',
+            gia: 1,
+            hoaDonId: 1,
           },
           elemDefault
         );
@@ -76,12 +76,12 @@ describe('Service Tests', () => {
       it('should return a list of DmGioHang', () => {
         const returnedFromService = Object.assign(
           {
-            userId: 'BBBBBB',
+            login: 'BBBBBB',
             dmSanPhamId: 1,
-            dmMauId: 1,
+            anhSp: 'BBBBBB',
             soLuong: 1,
-            gia: 'BBBBBB',
-            hoaDon: 'BBBBBB',
+            gia: 1,
+            hoaDonId: 1,
           },
           elemDefault
         );

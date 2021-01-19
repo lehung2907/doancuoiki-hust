@@ -1,69 +1,57 @@
-<div>
+<div class="container">
     <h2 id="page-heading">
         <span jhiTranslate="sophiaApp.dmGioHang.home.title">Dm Gio Hangs</span>
-
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dm-gio-hang" [routerLink]="['/dm-gio-hang/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="sophiaApp.dmGioHang.home.createLabel">
-            Create a new Dm Gio Hang
-            </span>
-        </button>
     </h2>
-
-    <jhi-alert-error></jhi-alert-error>
-
-    <jhi-alert></jhi-alert>
-
     <div class="alert alert-warning" id="no-result" *ngIf="dmGioHangs?.length === 0">
         <span jhiTranslate="sophiaApp.dmGioHang.home.notFound">No dmGioHangs found</span>
     </div>
-
     <div class="table-responsive" id="entities" *ngIf="dmGioHangs && dmGioHangs.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.userId">User Id</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.dmSanPhamId">Dm San Pham Id</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.dmMauId">Dm Mau Id</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.soLuong">So Luong</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.gia">Gia</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.dmGioHang.hoaDon">Hoa Don</span></th>
-                    <th scope="col"></th>
-                </tr>
+            <tr>
+                <th scope="col"><span jhiTranslate="sophiaApp.dmGioHang.anhSp"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.dmGioHang.chiTiet"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.dmGioHang.soLuong"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.dmGioHang.gia"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.dmGioHang.thanhTien"></span></th>
+            </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let dmGioHang of dmGioHangs ;trackBy: trackId">
-                    <td><a [routerLink]="['/dm-gio-hang', dmGioHang.id, 'view']">{{ dmGioHang.id }}</a></td>
-                    <td>{{ dmGioHang.userId }}</td>
-                    <td>{{ dmGioHang.dmSanPhamId }}</td>
-                    <td>{{ dmGioHang.dmMauId }}</td>
-                    <td>{{ dmGioHang.soLuong }}</td>
-                    <td>{{ dmGioHang.gia }}</td>
-                    <td>{{ dmGioHang.hoaDon }}</td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit" [routerLink]="['/dm-gio-hang', dmGioHang.id, 'view']" class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                            </button>
-
-                            <button type="submit"
-                                    [routerLink]="['/dm-gio-hang', dmGioHang.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
-
-                            <button type="submit" (click)="delete(dmGioHang)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tr *ngFor="let dmGioHang of dmGioHangs ;trackBy: trackId">
+                <td>
+                    <a *ngIf="dmGioHang.anhSp" (click)="openFile(dmGioHang.anhSpContentType, dmGioHang.anhSp)">
+                        <img [src]="'data:' + dmGioHang.anhSpContentType + ';base64,' + dmGioHang.anhSp"
+                             style="max-height: 30px;" alt="dmGioHang image"/>
+                    </a>
+                </td>
+                <td>{{ dmGioHang.chiTiet }}</td>
+                <td>{{ dmGioHang.soLuong }}</td>
+                <td>{{ dmGioHang.gia }}₫</td>
+                <td>{{ dmGioHang.thanhTien }}₫</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit" (click)="detail(dmGioHang)" class="btn btn-primary btn-sm"><fa-icon icon="pencil-alt"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(dmGioHang)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon icon="times"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
+    </div>
+    <hr>
+    <div style="width: 300px; height: 100px; margin-left: auto; margin-right: 200px;">
+        <th style="width: 200px; height: 25px; margin-left: auto; margin-right: 200px;"><span> TỔNG TIỀN : </span></th>
+        <th style="width: 200px; height: 25px; margin-left: auto; margin-right: 200px;"> {{ tong }}₫</th>
+        <br>
+        <div style="color: #e0a800; width: 250px">
+            <button type="button" class="btn btn-warning" style="color: #1a1a1a; width: 250px; font-size: 25px">MUA HÀNG</button>
+        </div>
+        <br>
     </div>
 </div>

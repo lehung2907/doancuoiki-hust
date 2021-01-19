@@ -27,9 +27,22 @@ export class DmSanPhamService {
     return this.http.get<IDmSanPham>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  query(req?: any): Observable<EntityArrayResponseType> {
+  queryPageig(req?: any): Observable<EntityArrayResponseType> {
+    return this.http.get<Array<any>>(`${this.resourceUrl}/queryPageig`, { params: req, observe: 'response' });
+  }
+
+  queryKey(req: any): Observable<EntityArrayResponseType> {
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/keys`, { params: req, observe: 'response' });
+  }
+
+  queryAllDienThoai(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
-    return this.http.get<IDmSanPham[]>(this.resourceUrl, { params: options, observe: 'response' });
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/dienthoais`, { params: options, observe: 'response' });
+  }
+
+  queryAllLapTop(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/laptops`, { params: options, observe: 'response' });
   }
 
   delete(id: number): Observable<HttpResponse<{}>> {

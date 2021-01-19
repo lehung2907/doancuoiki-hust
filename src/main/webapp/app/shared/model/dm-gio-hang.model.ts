@@ -1,21 +1,27 @@
 export interface IDmGioHang {
   id?: number;
-  userId?: string;
+  login?: string;
   dmSanPhamId?: number;
-  dmMauId?: number;
+  anhSpContentType?: string;
+  anhSp?: any;
   soLuong?: number;
-  gia?: string;
-  hoaDon?: string;
+  gia?: number;
+  hoaDonId?: number;
+  chiTiet?: string;
+  thanhTien?: number;
 }
 
 export class DmGioHang implements IDmGioHang {
   constructor(
     public id?: number,
-    public userId?: string,
+    public login?: string,
     public dmSanPhamId?: number,
-    public dmMauId?: number,
+    public anhSpContentType?: string,
+    public anhSp?: any,
     public soLuong?: number,
-    public gia?: string,
-    public hoaDon?: string
+    public gia?: number,
+    public hoaDonId?: number,
+    public chiTiet?: string,
+    public thanhTien?: number
   ) {}
 }

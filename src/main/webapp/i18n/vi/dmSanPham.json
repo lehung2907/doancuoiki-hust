@@ -24,6 +24,13 @@
       "anh": "Anh",
       "soDaBan": "So Da Ban",
       "trangThai": "Trang Thai",
+      "cpu": "Cpu",
+      "gpu": "Gpu",
+      "boNho": "Bộ nhớ",
+      "ram": "Ram",
+      "manHinh": "Màn hình",
+      "camera": "Camera",
+      "sim": "Sim",
       "tragop": "Trả góp 0%"
     }
   }

@@ -4,21 +4,21 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
-import { DmSanPhamService } from './dm-san-pham.service';
-import { DmSanPhamDeleteDialogComponent } from './dm-san-pham-delete-dialog.component';
+import { IDmDienThoai } from 'app/shared/model/dm-dien-thoai.model';
+import { IDmSanPham } from '../../shared/model/dm-san-pham.model';
+import { DmSanPhamService } from '../dm-san-pham/dm-san-pham.service';
 import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
 import { PagingModel } from '../../shared/util/paging.model';
 
 @Component({
-  selector: 'jhi-dm-san-pham',
-  templateUrl: './dm-san-pham.component.html',
+  selector: 'jhi-dm-lap-top',
+  templateUrl: './dm-lap-top.component.html',
 })
-export class DmSanPhamComponent implements OnInit, OnDestroy {
-  dmSanPhams?: IDmSanPham[];
+export class DmLapTopComponent implements OnInit, OnDestroy {
   eventSubscriber?: Subscription;
-  paging = new PagingModel();
+  dmSanPhams?: IDmSanPham[];
   itemSearch?: any;
+  paging = new PagingModel();
 
   constructor(
     protected dmSanPhamService: DmSanPhamService,
@@ -34,7 +34,7 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
   }
 
   loadAll(): void {
-    this.dmSanPhamService.queryPageig(this.itemSearch).subscribe(
+    this.dmSanPhamService.queryAllLapTop(this.itemSearch).subscribe(
       (res: HttpResponse<Array<any>>) => {
         if (res.body) {
           this.dmSanPhams = res.body || [];
@@ -57,7 +57,7 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadAll();
-    this.registerChangeInDmSanPhams();
+    this.registerChangeInDmDienThoais();
   }
 
   ngOnDestroy(): void {
@@ -66,7 +66,7 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
     }
   }
 
-  trackId(index: number, item: IDmSanPham): number {
+  trackId(index: number, item: IDmDienThoai): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
@@ -79,12 +79,7 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
     return this.dataUtils.openFile(contentType, base64String);
   }
 
-  registerChangeInDmSanPhams(): void {
-    this.eventSubscriber = this.eventManager.subscribe('dmSanPhamListModification', () => this.loadAll());
-  }
-
-  delete(dmSanPham: IDmSanPham): void {
-    const modalRef = this.modalService.open(DmSanPhamDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.dmSanPham = dmSanPham;
+  registerChangeInDmDienThoais(): void {
+    this.eventSubscriber = this.eventManager.subscribe('dmDienThoaiListModification', () => this.loadAll());
   }
 }

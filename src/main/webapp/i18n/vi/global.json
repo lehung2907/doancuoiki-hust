@@ -13,11 +13,17 @@
         "dmAmThanh": "Dm Am Thanh",
         "dmDongHo": "Dm Dong Ho",
         "dmSanPham": "Dm San Pham",
+        "taiKhoan": "Tài khoản",
         "dmGioHang": "Dm Gio Hang",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "tivi": "Tivi",
         "dienthoai": {
           "dienthoai": "Điện thoại",
+          "iphone": "Iphone",
+          "samsung": "Samsung"
+        },
+        "laptop": {
+          "laptop": "Laptop",
           "iphone": "Iphone",
           "samsung": "Samsung"
         }
@@ -54,7 +60,9 @@
       "confirmpassword.label": "Xác nhận mật khẩu mới",
       "confirmpassword.placeholder": "Nhập lại mật khẩu mới",
       "email.label": "Email",
-      "email.placeholder": "Nhập email của bạn"
+      "email.placeholder": "Nhập email của bạn",
+      "currentpassword.label": "Mật khẩu cũ",
+      "currentpassword.placeholder": "Nhập mật khẩu cũ"
     },
     "messages": {
       "info": {
@@ -102,9 +110,12 @@
   "entity": {
     "action": {
       "addblob": "Thêm nội dung",
+      "question": "Xác nhận mua sản phẩm ",
       "addimage": "Thêm ảnh",
       "back": "Quay lại",
       "cancel": "Hủy",
+      "xacNhan": "Xác nhận mua hàng",
+      "confim": "Xác nhận",
       "delete": "Xóa",
       "edit": "Sửa",
       "open": "Mở",
@@ -144,6 +155,12 @@
     "file": {
       "could.not.extract": "Could not extract file",
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "page": {
+    "sum": {
+      "totalItem": "Tổng số bản ghi: ",
+      "itemPerPage": "Số bản ghi mỗi trang: "
     }
   },
   "footer": "Đây là chân trang của bạn"

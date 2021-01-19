@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
+import { JhiEventManager, JhiLanguageService } from 'ng-jhipster';
 import { SessionStorageService } from 'ngx-webstorage';
 
 import { VERSION } from 'app/app.constants';
@@ -9,6 +9,8 @@ import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'jhi-navbar',
@@ -21,6 +23,8 @@ export class NavbarComponent implements OnInit {
   languages = LANGUAGES;
   swaggerEnabled?: boolean;
   version: string;
+  timKiem?: string;
+  eventSubscriber?: Subscription;
 
   constructor(
     private loginService: LoginService,
@@ -29,7 +33,9 @@ export class NavbarComponent implements OnInit {
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal
   ) {
     this.version = VERSION ? (VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION) : '';
   }
@@ -39,6 +45,10 @@ export class NavbarComponent implements OnInit {
       this.inProduction = profileInfo.inProduction;
       this.swaggerEnabled = profileInfo.swaggerEnabled;
     });
+  }
+
+  search(): void {
+    this.router.navigateByUrl('/?q=' + this.timKiem);
   }
 
   changeLanguage(languageKey: string): void {

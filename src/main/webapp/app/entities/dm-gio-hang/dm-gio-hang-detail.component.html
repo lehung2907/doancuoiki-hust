@@ -5,20 +5,23 @@
 
             <hr>
 
-            <jhi-alert-error></jhi-alert-error>
-
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="sophiaApp.dmGioHang.userId">User Id</span></dt>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.login">Login</span></dt>
                 <dd>
-                    <span>{{ dmGioHang.userId }}</span>
+                    <span>{{ dmGioHang.login }}</span>
                 </dd>
                 <dt><span jhiTranslate="sophiaApp.dmGioHang.dmSanPhamId">Dm San Pham Id</span></dt>
                 <dd>
                     <span>{{ dmGioHang.dmSanPhamId }}</span>
                 </dd>
-                <dt><span jhiTranslate="sophiaApp.dmGioHang.dmMauId">Dm Mau Id</span></dt>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.anhSp">Anh Sp</span></dt>
                 <dd>
-                    <span>{{ dmGioHang.dmMauId }}</span>
+                    <div *ngIf="dmGioHang.anhSp">
+                        <a (click)="openFile(dmGioHang.anhSpContentType, dmGioHang.anhSp)">
+                            <img [src]="'data:' + dmGioHang.anhSpContentType + ';base64,' + dmGioHang.anhSp" style="max-width: 100%;" alt="dmGioHang image"/>
+                        </a>
+                        {{ dmGioHang.anhSpContentType }}, {{ byteSize(dmGioHang.anhSp) }}
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="sophiaApp.dmGioHang.soLuong">So Luong</span></dt>
                 <dd>
@@ -28,9 +31,9 @@
                 <dd>
                     <span>{{ dmGioHang.gia }}</span>
                 </dd>
-                <dt><span jhiTranslate="sophiaApp.dmGioHang.hoaDon">Hoa Don</span></dt>
+                <dt><span jhiTranslate="sophiaApp.dmGioHang.hoaDonId">Hoa Don Id</span></dt>
                 <dd>
-                    <span>{{ dmGioHang.hoaDon }}</span>
+                    <span>{{ dmGioHang.hoaDonId }}</span>
                 </dd>
             </dl>
 

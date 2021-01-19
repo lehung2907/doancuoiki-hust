@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
@@ -28,6 +27,13 @@ export class DmSanPhamUpdateComponent implements OnInit {
     anhContentType: [],
     soDaBan: [],
     trangThai: [],
+    cpu: [],
+    gpu: [],
+    boNho: [],
+    ram: [],
+    manHinh: [],
+    camera: [],
+    sim: [],
   });
 
   constructor(
@@ -57,6 +63,13 @@ export class DmSanPhamUpdateComponent implements OnInit {
       anhContentType: dmSanPham.anhContentType,
       soDaBan: dmSanPham.soDaBan,
       trangThai: dmSanPham.trangThai,
+      cpu: dmSanPham.cpu,
+      gpu: dmSanPham.gpu,
+      boNho: dmSanPham.boNho,
+      ram: dmSanPham.ram,
+      manHinh: dmSanPham.manHinh,
+      camera: dmSanPham.camera,
+      sim: dmSanPham.sim,
     });
   }
 
@@ -113,6 +126,13 @@ export class DmSanPhamUpdateComponent implements OnInit {
       anh: this.editForm.get(['anh'])!.value,
       soDaBan: this.editForm.get(['soDaBan'])!.value,
       trangThai: this.editForm.get(['trangThai'])!.value,
+      cpu: this.editForm.get(['cpu'])!.value,
+      gpu: this.editForm.get(['gpu'])!.value,
+      boNho: this.editForm.get(['boNho'])!.value,
+      ram: this.editForm.get(['ram'])!.value,
+      manHinh: this.editForm.get(['manHinh'])!.value,
+      camera: this.editForm.get(['camera'])!.value,
+      sim: this.editForm.get(['sim'])!.value,
     };
   }
 

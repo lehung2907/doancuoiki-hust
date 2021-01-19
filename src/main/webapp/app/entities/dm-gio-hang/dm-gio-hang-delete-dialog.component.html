@@ -9,11 +9,11 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
 
-        <p id="jhi-delete-dmGioHang-heading" jhiTranslate="sophiaApp.dmGioHang.delete.question" [translateValues]="{ id: dmGioHang.id }">Are you sure you want to delete this Dm Gio Hang?</p>
+        <p id="jhi-delete-dmGioHang-heading" jhiTranslate="sophiaApp.dmGioHang.delete.question" [translateValues]="{ id: dmGioHang.id }"></p>
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <button type="button" ngbAutofocus class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
             <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
 

@@ -21,25 +21,49 @@ public class DmGioHang implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private String userId;
+    @Column(name = "login")
+    private String login;
 
     @Column(name = "dm_san_pham_id")
-    private Integer dmSanPhamId;
+    private Long dmSanPhamId;
 
-    @Column(name = "dm_mau_id")
-    private Integer dmMauId;
+    @Lob
+    @Column(name = "anh_sp")
+    private byte[] anhSp;
+
+    @Column(name = "anh_sp_content_type")
+    private String anhSpContentType;
 
     @Column(name = "so_luong")
     private Integer soLuong;
 
     @Column(name = "gia")
-    private String gia;
+    private Integer gia;
 
-    @Column(name = "hoa_don")
-    private String hoaDon;
+    @Column(name = "hoa_don_id")
+    private Integer hoaDonId;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "chi_tiet")
+    private String chiTiet;
+
+    @Column(name = "thanh_tien")
+    private Integer thanhTien;
+
+    public DmGioHang() {
+    }
+
+    public Integer getThanhTien() {
+        return thanhTien;
+    }
+
+    public void setThanhTien(Integer thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public Long getId() {
         return id;
     }
@@ -48,112 +72,80 @@ public class DmGioHang implements Serializable {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getLogin() {
+        return login;
     }
 
-    public DmGioHang userId(String userId) {
-        this.userId = userId;
-        return this;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Integer getDmSanPhamId() {
+    public Long getDmSanPhamId() {
         return dmSanPhamId;
     }
 
-    public DmGioHang dmSanPhamId(Integer dmSanPhamId) {
-        this.dmSanPhamId = dmSanPhamId;
-        return this;
-    }
-
-    public void setDmSanPhamId(Integer dmSanPhamId) {
+    public void setDmSanPhamId(Long dmSanPhamId) {
         this.dmSanPhamId = dmSanPhamId;
     }
 
-    public Integer getDmMauId() {
-        return dmMauId;
+    public byte[] getAnhSp() {
+        return anhSp;
     }
 
-    public DmGioHang dmMauId(Integer dmMauId) {
-        this.dmMauId = dmMauId;
-        return this;
+    public void setAnhSp(byte[] anhSp) {
+        this.anhSp = anhSp;
     }
 
-    public void setDmMauId(Integer dmMauId) {
-        this.dmMauId = dmMauId;
+    public String getAnhSpContentType() {
+        return anhSpContentType;
+    }
+
+    public void setAnhSpContentType(String anhSpContentType) {
+        this.anhSpContentType = anhSpContentType;
     }
 
     public Integer getSoLuong() {
         return soLuong;
     }
 
-    public DmGioHang soLuong(Integer soLuong) {
-        this.soLuong = soLuong;
-        return this;
-    }
-
     public void setSoLuong(Integer soLuong) {
         this.soLuong = soLuong;
     }
 
-    public String getGia() {
+    public Integer getGia() {
         return gia;
     }
 
-    public DmGioHang gia(String gia) {
-        this.gia = gia;
-        return this;
-    }
-
-    public void setGia(String gia) {
+    public void setGia(Integer gia) {
         this.gia = gia;
     }
 
-    public String getHoaDon() {
-        return hoaDon;
+    public Integer getHoaDonId() {
+        return hoaDonId;
     }
 
-    public DmGioHang hoaDon(String hoaDon) {
-        this.hoaDon = hoaDon;
-        return this;
+    public void setHoaDonId(Integer hoaDonId) {
+        this.hoaDonId = hoaDonId;
     }
 
-    public void setHoaDon(String hoaDon) {
-        this.hoaDon = hoaDon;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof DmGioHang)) {
-            return false;
-        }
-        return id != null && id.equals(((DmGioHang) o).id);
+    public String getChiTiet() {
+        return chiTiet;
     }
 
-    @Override
-    public int hashCode() {
-        return 31;
+    public void setChiTiet(String chiTiet) {
+        this.chiTiet = chiTiet;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "DmGioHang{" +
-            "id=" + getId() +
-            ", userId='" + getUserId() + "'" +
-            ", dmSanPhamId=" + getDmSanPhamId() +
-            ", dmMauId=" + getDmMauId() +
-            ", soLuong=" + getSoLuong() +
-            ", gia='" + getGia() + "'" +
-            ", hoaDon='" + getHoaDon() + "'" +
-            "}";
+    public DmGioHang(Long id, String login, Long dmSanPhamId, byte[] anhSp, String anhSpContentType, Integer soLuong, Integer gia, Integer hoaDonId, String chiTiet, Integer thanhTien) {
+        this.id = id;
+        this.login = login;
+        this.dmSanPhamId = dmSanPhamId;
+        this.anhSp = anhSp;
+        this.anhSpContentType = anhSpContentType;
+        this.soLuong = soLuong;
+        this.gia = gia;
+        this.hoaDonId = hoaDonId;
+        this.chiTiet = chiTiet;
+        this.thanhTien = thanhTien;
     }
 }

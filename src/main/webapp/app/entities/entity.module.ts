@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./dm-dien-thoai/dm-dien-thoai.module').then(m => m.SophiaDmDienThoaiModule),
       },
       {
+        path: 'dm-lap-top',
+        loadChildren: () => import('./dm-lap-top/dm-lap-top.module').then(m => m.SophiaDmLapTopModule),
+      },
+      {
         path: 'dm-san-pham',
         loadChildren: () => import('./dm-san-pham/dm-san-pham.module').then(m => m.SophiaDmSanPhamModule),
       },
