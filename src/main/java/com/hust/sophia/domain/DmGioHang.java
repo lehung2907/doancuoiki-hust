@@ -25,7 +25,7 @@ public class DmGioHang implements Serializable {
     private String login;
 
     @Column(name = "dm_san_pham_id")
-    private Integer dmSanPhamId;
+    private Long dmSanPhamId;
 
     @Lob
     @Column(name = "anh_sp")
@@ -69,11 +69,11 @@ public class DmGioHang implements Serializable {
         this.login = login;
     }
 
-    public Integer getDmSanPhamId() {
+    public Long getDmSanPhamId() {
         return dmSanPhamId;
     }
 
-    public void setDmSanPhamId(Integer dmSanPhamId) {
+    public void setDmSanPhamId(Long dmSanPhamId) {
         this.dmSanPhamId = dmSanPhamId;
     }
 
@@ -125,7 +125,7 @@ public class DmGioHang implements Serializable {
         this.chiTiet = chiTiet;
     }
 
-    public DmGioHang(Long id, String login, Integer dmSanPhamId, byte[] anhSp, String anhSpContentType, Integer soLuong, Integer gia, Integer hoaDonId, String chiTiet) {
+    public DmGioHang(Long id, String login, Long dmSanPhamId, byte[] anhSp, String anhSpContentType, Integer soLuong, Integer gia, Integer hoaDonId, String chiTiet) {
         this.id = id;
         this.login = login;
         this.dmSanPhamId = dmSanPhamId;

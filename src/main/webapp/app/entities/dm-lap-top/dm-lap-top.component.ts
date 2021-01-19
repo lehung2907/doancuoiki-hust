@@ -82,8 +82,4 @@ export class DmLapTopComponent implements OnInit, OnDestroy {
   registerChangeInDmDienThoais(): void {
     this.eventSubscriber = this.eventManager.subscribe('dmDienThoaiListModification', () => this.loadAll());
   }
-
-  addToCart(req: any): void {
-    this.dmGioHangService.addCart(req);
-  }
 }

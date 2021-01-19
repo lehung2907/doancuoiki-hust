@@ -149,8 +149,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadSearch(req: any): void {}
-
   trackId(index: number, item: IDmSanPham): number {
     return item.id!;
   }
@@ -161,9 +159,5 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   byteSize(base64String: string): string {
     return this.dataUtils.byteSize(base64String);
-  }
-
-  addToCart(req: any): void {
-    this.dmGioHangService.addCart(req);
   }
 }

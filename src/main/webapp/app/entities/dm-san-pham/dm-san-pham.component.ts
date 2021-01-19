@@ -87,8 +87,4 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(DmSanPhamDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.dmSanPham = dmSanPham;
   }
-
-  addToCart(req: any): void {
-    this.dmGioHangService.addCart(req);
-  }
 }

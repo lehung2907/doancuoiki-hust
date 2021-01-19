@@ -1,11 +1,16 @@
 package com.hust.sophia.web.rest;
 
 import com.hust.sophia.domain.DmGioHang;
+import com.hust.sophia.domain.DmSanPham;
 import com.hust.sophia.repository.DmGioHangRepository;
+import com.hust.sophia.repository.DmSanPhamRepository;
+import com.hust.sophia.service.UserService;
+import com.hust.sophia.service.dto.UserDTO;
 import com.hust.sophia.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.models.auth.In;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +32,12 @@ import java.util.Optional;
 @Transactional
 public class DmGioHangResource {
 
+    private static class AccountResourceException extends RuntimeException {
+        private AccountResourceException(String message) {
+            super(message);
+        }
+    }
+
     private final Logger log = LoggerFactory.getLogger(DmGioHangResource.class);
 
     private static final String ENTITY_NAME = "dmGioHang";
@@ -33,19 +45,18 @@ public class DmGioHangResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
+    private final UserService userService;
+
     private final DmGioHangRepository dmGioHangRepository;
 
-    public DmGioHangResource(DmGioHangRepository dmGioHangRepository) {
+    private final DmSanPhamRepository dmSanPhamRepository;
+
+    public DmGioHangResource(DmGioHangRepository dmGioHangRepository, UserService userService, DmSanPhamRepository dmSanPhamRepository) {
         this.dmGioHangRepository = dmGioHangRepository;
+        this.userService = userService;
+        this.dmSanPhamRepository = dmSanPhamRepository;
     }
 
-    /**
-     * {@code POST  /dm-gio-hangs} : Create a new dmGioHang.
-     *
-     * @param dmGioHang the dmGioHang to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new dmGioHang, or with status {@code 400 (Bad Request)} if the dmGioHang has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
     @PostMapping("/dm-gio-hangs")
     public ResponseEntity<DmGioHang> createDmGioHang(@RequestBody DmGioHang dmGioHang) throws URISyntaxException {
         log.debug("REST request to save DmGioHang : {}", dmGioHang);
@@ -58,15 +69,24 @@ public class DmGioHangResource {
             .body(result);
     }
 
-    /**
-     * {@code PUT  /dm-gio-hangs} : Updates an existing dmGioHang.
-     *
-     * @param dmGioHang the dmGioHang to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated dmGioHang,
-     * or with status {@code 400 (Bad Request)} if the dmGioHang is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the dmGioHang couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
+    @GetMapping("/dm-gio-hangs/addSanPham")
+    public ResponseEntity<DmGioHang> createDmGioHangByUser(Integer id) throws URISyntaxException {
+        log.debug("REST request to save createDmGioHangByUser : {}", id);
+        DmGioHang dto = new DmGioHang();
+        DmSanPham dmSanPham = dmSanPhamRepository.findById(Long.valueOf(id)).get();
+        UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
+        dto.setLogin(user.getLogin());
+        dto.setDmSanPhamId(dmSanPham.getId());
+        dto.setAnhSp(dmSanPham.getAnh());
+        dto.setAnhSpContentType(dmSanPham.getAnhContentType());
+        dto.setSoLuong(1);
+        dto.setGia(Integer.valueOf(dmSanPham.getGia()));
+        DmGioHang result = dmGioHangRepository.save(dto);
+        return ResponseEntity.created(new URI("/api/dm-gio-hangs/addSanPham/" + id))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .body(result);
+    }
+
     @PutMapping("/dm-gio-hangs")
     public ResponseEntity<DmGioHang> updateDmGioHang(@RequestBody DmGioHang dmGioHang) throws URISyntaxException {
         log.debug("REST request to update DmGioHang : {}", dmGioHang);
@@ -79,23 +99,19 @@ public class DmGioHangResource {
             .body(result);
     }
 
-    /**
-     * {@code GET  /dm-gio-hangs} : get all the dmGioHangs.
-     *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of dmGioHangs in body.
-     */
     @GetMapping("/dm-gio-hangs")
     public List<DmGioHang> getAllDmGioHangs() {
         log.debug("REST request to get all DmGioHangs");
-        return dmGioHangRepository.findAll();
+        List<DmGioHang> results = new ArrayList<>();
+        UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
+        if(user.getLogin().equalsIgnoreCase("admin")){
+            results = dmGioHangRepository.findAll();
+        } else {
+            results = dmGioHangRepository.findAllByLogin(user.getLogin());
+        }
+        return results;
     }
 
-    /**
-     * {@code GET  /dm-gio-hangs/:id} : get the "id" dmGioHang.
-     *
-     * @param id the id of the dmGioHang to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dmGioHang, or with status {@code 404 (Not Found)}.
-     */
     @GetMapping("/dm-gio-hangs/{id}")
     public ResponseEntity<DmGioHang> getDmGioHang(@PathVariable Long id) {
         log.debug("REST request to get DmGioHang : {}", id);
@@ -103,12 +119,6 @@ public class DmGioHangResource {
         return ResponseUtil.wrapOrNotFound(dmGioHang);
     }
 
-    /**
-     * {@code DELETE  /dm-gio-hangs/:id} : delete the "id" dmGioHang.
-     *
-     * @param id the id of the dmGioHang to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
     @DeleteMapping("/dm-gio-hangs/{id}")
     public ResponseEntity<Void> deleteDmGioHang(@PathVariable Long id) {
         log.debug("REST request to delete DmGioHang : {}", id);
