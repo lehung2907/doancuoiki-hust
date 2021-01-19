@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { JhiDataUtils } from 'ng-jhipster';
 
 import { IDmSanPham } from 'app/shared/model/dm-san-pham.model';
-import { DmGioHangService } from '../dm-gio-hang/dm-gio-hang.service';
+import { DmSanPhamDeleteDialogComponent } from './dm-san-pham-delete-dialog.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-dm-san-pham-detail',
@@ -14,7 +15,7 @@ export class DmSanPhamDetailComponent implements OnInit {
 
   item?: any;
 
-  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute, protected dmGioHangService: DmGioHangService) {
+  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute, protected modalService: NgbModal) {
     this.item = {
       id: undefined,
     };
@@ -36,16 +37,11 @@ export class DmSanPhamDetailComponent implements OnInit {
     window.history.back();
   }
 
-  addToCart(): void {
-    if (this.dmSanPham) {
-      this.item = {
-        id: this.dmSanPham.id || '',
-      };
-      this.dmGioHangService.addCart(this.item).subscribe();
-    }
-  }
-
-  myFunction(): void {
-    confirm('Press a button!');
+  addToCartPopUp(dmSanPham: IDmSanPham): void {
+    const modalRef = this.modalService.open(DmSanPhamDeleteDialogComponent, {
+      backdrop: 'static',
+      centered: true,
+    });
+    modalRef.componentInstance.dmSanPham = dmSanPham;
   }
 }

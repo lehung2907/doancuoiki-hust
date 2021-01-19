@@ -30,6 +30,10 @@ export class DmGioHangService {
     return this.http.get<IDmGioHang[]>(this.resourceUrl, { params: req, observe: 'response' });
   }
 
+  querySl(req?: any): Observable<EntityArrayResponseType> {
+    return this.http.get<IDmGioHang[]>(`${this.resourceUrl}/sl`, { params: req, observe: 'response' });
+  }
+
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }

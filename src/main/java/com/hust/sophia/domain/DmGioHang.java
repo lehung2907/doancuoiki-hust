@@ -46,7 +46,18 @@ public class DmGioHang implements Serializable {
     @Column(name = "chi_tiet")
     private String chiTiet;
 
+    @Column(name = "thanh_tien")
+    private Integer thanhTien;
+
     public DmGioHang() {
+    }
+
+    public Integer getThanhTien() {
+        return thanhTien;
+    }
+
+    public void setThanhTien(Integer thanhTien) {
+        this.thanhTien = thanhTien;
     }
 
     public static long getSerialVersionUID() {
@@ -125,7 +136,7 @@ public class DmGioHang implements Serializable {
         this.chiTiet = chiTiet;
     }
 
-    public DmGioHang(Long id, String login, Long dmSanPhamId, byte[] anhSp, String anhSpContentType, Integer soLuong, Integer gia, Integer hoaDonId, String chiTiet) {
+    public DmGioHang(Long id, String login, Long dmSanPhamId, byte[] anhSp, String anhSpContentType, Integer soLuong, Integer gia, Integer hoaDonId, String chiTiet, Integer thanhTien) {
         this.id = id;
         this.login = login;
         this.dmSanPhamId = dmSanPhamId;
@@ -135,5 +146,6 @@ public class DmGioHang implements Serializable {
         this.gia = gia;
         this.hoaDonId = hoaDonId;
         this.chiTiet = chiTiet;
+        this.thanhTien = thanhTien;
     }
 }

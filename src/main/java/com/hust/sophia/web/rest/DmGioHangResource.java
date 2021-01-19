@@ -70,10 +70,10 @@ public class DmGioHangResource {
     }
 
     @GetMapping("/dm-gio-hangs/addSanPham")
-    public ResponseEntity<DmGioHang> createDmGioHangByUser(Integer id) throws URISyntaxException {
+    public ResponseEntity<DmGioHang> createDmGioHangByUser(Long id) throws URISyntaxException {
         log.debug("REST request to save createDmGioHangByUser : {}", id);
         DmGioHang dto = new DmGioHang();
-        DmSanPham dmSanPham = dmSanPhamRepository.findById(Long.valueOf(id)).get();
+        DmSanPham dmSanPham = dmSanPhamRepository.findById(id).get();
         UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
         dto.setLogin(user.getLogin());
         dto.setDmSanPhamId(dmSanPham.getId());
@@ -82,6 +82,19 @@ public class DmGioHangResource {
         dto.setSoLuong(1);
         dto.setGia(Integer.valueOf(dmSanPham.getGia()));
         DmGioHang result = dmGioHangRepository.save(dto);
+        return ResponseEntity.created(new URI("/api/dm-gio-hangs/addSanPham/" + id))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .body(result);
+    }
+
+    @GetMapping("/dm-gio-hangs/sl")
+    public ResponseEntity<DmGioHang> editSoLuongByTien(Long id, Integer sl) throws URISyntaxException {
+        log.debug("REST request to save editSoLuongByTien : {}", id);
+        DmGioHang dmGioHang = dmGioHangRepository.findById(id).get();
+        dmGioHang.setSoLuong(sl);
+        dmGioHang.setThanhTien(dmGioHang.getGia() * sl);
+//        UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
+        DmGioHang result = dmGioHangRepository.save(dmGioHang);
         return ResponseEntity.created(new URI("/api/dm-gio-hangs/addSanPham/" + id))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .body(result);

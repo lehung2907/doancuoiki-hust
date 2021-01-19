@@ -16,17 +16,26 @@ import { DmGioHangUpdateComponent } from './dm-gio-hang-update.component';
 export class DmGioHangComponent implements OnInit, OnDestroy {
   dmGioHangs?: IDmGioHang[];
   eventSubscriber?: Subscription;
-  tong = '104.000.000';
+  tong?: any;
 
   constructor(
     protected dmGioHangService: DmGioHangService,
     protected dataUtils: JhiDataUtils,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal
-  ) {}
+  ) {
+    this.tong = 0;
+  }
 
   loadAll(): void {
-    this.dmGioHangService.query().subscribe((res: HttpResponse<IDmGioHang[]>) => (this.dmGioHangs = res.body || []));
+    this.dmGioHangService.query().subscribe((res: HttpResponse<IDmGioHang[]>) => {
+      if (res.body) {
+        this.dmGioHangs = res.body;
+        for (let i = 0; i < this.dmGioHangs.length; i++) {
+          this.tong += this.dmGioHangs[i].thanhTien;
+        }
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -64,13 +73,12 @@ export class DmGioHangComponent implements OnInit, OnDestroy {
   detail(data?: IDmGioHang): void {
     const modalRef = this.modalService.open(DmGioHangUpdateComponent, {
       backdrop: 'static',
-      // size: 'lg',
       centered: true,
     });
     modalRef.componentInstance.data = data;
     modalRef.result.then(
-      () => this.loadAll(),
-      () => {}
+      () => {},
+      () => this.loadAll()
     );
   }
 }

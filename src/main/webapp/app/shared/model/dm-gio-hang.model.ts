@@ -8,6 +8,7 @@ export interface IDmGioHang {
   gia?: number;
   hoaDonId?: number;
   chiTiet?: string;
+  thanhTien?: number;
 }
 
 export class DmGioHang implements IDmGioHang {
@@ -20,6 +21,7 @@ export class DmGioHang implements IDmGioHang {
     public soLuong?: number,
     public gia?: number,
     public hoaDonId?: number,
-    public chiTiet?: string
+    public chiTiet?: string,
+    public thanhTien?: number
   ) {}
 }

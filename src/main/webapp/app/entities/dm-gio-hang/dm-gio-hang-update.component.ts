@@ -17,6 +17,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DmGioHangUpdateComponent implements OnInit {
   isSaving = false;
+  data?: IDmGioHang;
+  soLuong?: any;
+  item?: any;
 
   editForm = this.fb.group({
     id: [],
@@ -37,11 +40,31 @@ export class DmGioHangUpdateComponent implements OnInit {
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     public activeModal: NgbActiveModal
-  ) {}
+  ) {
+    this.item = {
+      id: undefined,
+      sl: undefined,
+    };
+    this.soLuong = {
+      sl: undefined,
+    };
+  }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ dmGioHang }) => {
       this.updateForm(dmGioHang);
+    });
+  }
+
+  saveSl(): void {
+    if (this.soLuong && this.data) {
+      this.item = {
+        id: this.data.id || '',
+        sl: this.soLuong.sl || 1,
+      };
+    }
+    this.dmGioHangService.querySl(this.item).subscribe(() => {
+      this.activeModal.close();
     });
   }
 

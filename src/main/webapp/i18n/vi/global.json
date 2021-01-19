@@ -110,9 +110,12 @@
   "entity": {
     "action": {
       "addblob": "Thêm nội dung",
+      "question": "Xác nhận mua sản phẩm ",
       "addimage": "Thêm ảnh",
       "back": "Quay lại",
       "cancel": "Hủy",
+      "xacNhan": "Xác nhận mua hàng",
+      "confim": "Xác nhận",
       "delete": "Xóa",
       "edit": "Sửa",
       "open": "Mở",
