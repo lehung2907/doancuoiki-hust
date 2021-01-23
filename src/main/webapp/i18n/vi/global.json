@@ -15,6 +15,7 @@
         "dmSanPham": "Dm San Pham",
         "taiKhoan": "Tài khoản",
         "dmGioHang": "Dm Gio Hang",
+        "hoaDon": "Hoa Don",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "tivi": "Tivi",
         "dienthoai": {
@@ -109,6 +110,7 @@
   },
   "entity": {
     "action": {
+      "hoanThanh": "HOÀN THÀNH ĐƠN HÀNG",
       "addblob": "Thêm nội dung",
       "question": "Xác nhận mua sản phẩm ",
       "addimage": "Thêm ảnh",

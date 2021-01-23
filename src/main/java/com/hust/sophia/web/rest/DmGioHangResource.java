@@ -122,6 +122,16 @@ public class DmGioHangResource {
         } else {
             results = dmGioHangRepository.findAllByLogin(user.getLogin());
         }
+        for(DmGioHang dmGioHang : results) {
+            if(dmGioHang.getTrangThai().equals("0"))
+                dmGioHang.setTrangThai("Chờ thanh toán");
+            else if(dmGioHang.getTrangThai().equals("1"))
+                dmGioHang.setTrangThai("Đang giao hàng");
+            else if(dmGioHang.getTrangThai().equals("2"))
+                dmGioHang.setTrangThai("Giao hàng thành công");
+            else if(dmGioHang.getTrangThai().equals("3"))
+                dmGioHang.setTrangThai("Giao hàng thất bại");
+        }
         return results;
     }
 

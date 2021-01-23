@@ -1,0 +1,64 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "login",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dmSanPhamId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "soLuong",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gia",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ten",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "diaChi",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soDienThoai",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trangThai",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ghiChu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ngayLap",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "trangThai2",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210123175328",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "hoa_don",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

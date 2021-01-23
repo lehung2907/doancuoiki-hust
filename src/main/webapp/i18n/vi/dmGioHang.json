@@ -2,6 +2,7 @@
   "sophiaApp": {
     "dmGioHang": {
       "home": {
+        "thongTinDonHang": "Thông tin đơn hàng",
         "title": "GIỎ HÀNG",
         "createLabel": "Thêm mới một Dm Gio Hang",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Dm Gio Hang",
@@ -16,10 +17,15 @@
       "detail": {
         "title": "Dm Gio Hang"
       },
-      "login": "Login",
+      "tenKhachHang": "Tên khách hàng",
+      "sdt": "Số điện thoại",
+      "email": "Email",
+      "diaChi": "Địa chỉ",
+      "ghiChu": "Ghi chú",
       "dmSanPhamId": "Dm San Pham Id",
       "anhSp": "Ảnh",
       "soLuong": "Số lượng",
+      "trangThai": "Trạng thái đơn hàng",
       "gia": "Giá",
       "chiTiet": "Chi tiết sản phẩm",
       "hoaDonId": "Hoa Don Id",
