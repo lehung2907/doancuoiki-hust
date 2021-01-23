@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HoaDonService } from '../hoa-don/hoa-don.service';
 import { IHoaDon } from '../../shared/model/hoa-don.model';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DmGioHang, IDmGioHang } from '../../shared/model/dm-gio-hang.model';
+import { DmGioHang } from '../../shared/model/dm-gio-hang.model';
 import { JhiDataUtils } from 'ng-jhipster';
 import { DmGioHangService } from './dm-gio-hang.service';
-import { DmGioHangDTO, IDmGioHangDTO } from '../../shared/model/dm-gIo-hang-detailDTO';
+import { DmGioHangDTO } from '../../shared/model/dm-gIo-hang-detailDTO';
 
 @Component({
   selector: 'jhi-hoa-don-popup',
@@ -61,7 +61,6 @@ export class HoaDonPopupComponent implements OnInit {
     }
   }
 
-  // , this.thongTin
   save(): void {
     if (this.data && this.thongTin) {
       this.dmGioHangs = {
@@ -73,7 +72,7 @@ export class HoaDonPopupComponent implements OnInit {
         dmGioHangs: this.data,
       };
     }
-    this.dmGioHangService.saveHoaDon(this.dmGioHangs).subscribe(any => {});
+    this.dmGioHangService.saveHoaDon(this.dmGioHangs).subscribe();
     this.activeModal.dismiss();
   }
 

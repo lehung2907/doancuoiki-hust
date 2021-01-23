@@ -8,7 +8,6 @@ import { IDmGioHang } from 'app/shared/model/dm-gio-hang.model';
 import { DmGioHangService } from './dm-gio-hang.service';
 import { DmGioHangDeleteDialogComponent } from './dm-gio-hang-delete-dialog.component';
 import { DmGioHangUpdateComponent } from './dm-gio-hang-update.component';
-import { DmGioHangDetailComponent } from './dm-gio-hang-detail.component';
 import { HoaDonPopupComponent } from './hoa-don-popup.component';
 
 @Component({
