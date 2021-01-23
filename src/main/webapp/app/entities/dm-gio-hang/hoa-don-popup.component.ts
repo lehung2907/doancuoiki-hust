@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 import { HoaDonService } from '../hoa-don/hoa-don.service';
 import { IHoaDon } from '../../shared/model/hoa-don.model';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IDmGioHang } from '../../shared/model/dm-gio-hang.model';
+import { DmGioHang, IDmGioHang } from '../../shared/model/dm-gio-hang.model';
 import { JhiDataUtils } from 'ng-jhipster';
+import { DmGioHangService } from './dm-gio-hang.service';
+import { DmGioHangDTO, IDmGioHangDTO } from '../../shared/model/dm-gIo-hang-detailDTO';
 
 @Component({
   selector: 'jhi-hoa-don-popup',
@@ -16,12 +18,15 @@ import { JhiDataUtils } from 'ng-jhipster';
 })
 export class HoaDonPopupComponent implements OnInit {
   isSaving = false;
-  ngayLapDp: any;
-  data?: IDmGioHang[];
+  data?: DmGioHang[];
+  thongTinKh?: DmGioHangDTO;
   tong?: any;
+  dmGioHangs?: any;
+  thongTin?: any;
 
   constructor(
     protected hoaDonService: HoaDonService,
+    protected dmGioHangService: DmGioHangService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     protected dataUtils: JhiDataUtils,
@@ -29,6 +34,21 @@ export class HoaDonPopupComponent implements OnInit {
     protected modalService: NgbModal
   ) {
     this.tong = 0;
+    this.thongTin = {
+      tenKhachHang: '',
+      soDienThoai: '',
+      email: '',
+      diaChi: '',
+      ghiChu: '',
+    };
+    this.dmGioHangs = {
+      tenKhachHang: '',
+      soDienThoai: '',
+      email: '',
+      diaChi: '',
+      ghiChu: '',
+      dmGioHangs: '',
+    };
   }
 
   ngOnInit(): void {
@@ -41,7 +61,19 @@ export class HoaDonPopupComponent implements OnInit {
     }
   }
 
+  // , this.thongTin
   save(): void {
+    if (this.data && this.thongTin) {
+      this.dmGioHangs = {
+        tenKhachHang: this.thongTin.tenKhachHang,
+        soDienThoai: this.thongTin.soDienThoai,
+        email: this.thongTin.email,
+        diaChi: this.thongTin.diaChi,
+        ghiChu: this.thongTin.ghiChu,
+        dmGioHangs: this.data,
+      };
+    }
+    this.dmGioHangService.saveHoaDon(this.dmGioHangs).subscribe(any => {});
     this.activeModal.dismiss();
   }
 

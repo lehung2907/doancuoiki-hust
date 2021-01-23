@@ -6,6 +6,7 @@
       "home": "Trang chủ",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
+        "quanLyDonHang": "Quản lý đơn hàng",
         "main": "Thực thể",
         "dmDienThoai": "Dm Dien Thoai",
         "dmLapTop": "Dm Lap Top",

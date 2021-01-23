@@ -11,6 +11,8 @@ import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
+import { DmSanPhamService } from 'app/entities/dm-san-pham/dm-san-pham.service';
 
 @Component({
   selector: 'jhi-navbar',
@@ -25,8 +27,10 @@ export class NavbarComponent implements OnInit {
   version: string;
   timKiem?: string;
   eventSubscriber?: Subscription;
+  user?: any;
 
   constructor(
+    protected dmSanPhamService: DmSanPhamService,
     private loginService: LoginService,
     private languageService: JhiLanguageService,
     private sessionStorage: SessionStorageService,
@@ -41,6 +45,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dmSanPhamService.getAcount().subscribe((res: HttpResponse<any>) => {
+      if (res.body) {
+        this.user = res.body.login;
+      }
+    });
     this.profileService.getProfileInfo().subscribe(profileInfo => {
       this.inProduction = profileInfo.inProduction;
       this.swaggerEnabled = profileInfo.swaggerEnabled;

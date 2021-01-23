@@ -12,7 +12,8 @@
                 <div class="input-group" style="width:330px; height: 30px">
                     <input type="text" placeholder="Search..." style="width:300px; height: 30px" [(ngModel)]="timKiem">
                     <br/>
-                    <button (click)="search()" type="button" class="btn btn-group" style="margin-left: -40px; z-index: 100;">
+                    <button (click)="search()" type="button" class="btn btn-group"
+                            style="margin-left: -40px; z-index: 100;">
                         <i class="fa fa-search fa-lg" type="submit"></i>
                     </button>
                 </div>
@@ -52,54 +53,56 @@
                     <div class="main-menu" [ngSwitch]="isAuthenticated()">
                         <ul>
                             <li class="has-child">
-                                <a routerLink="dm-san-pham" routerLinkActive="active" jhiTranslate="global.menu.entities.tivi"></a>
-<!--                                <ul class="drop-menu">-->
-<!--                                    <li><a routerLink="dm-san-pham" routerLinkActive="active" jhiTranslate="global.menu.entities.tivi"></a></li>-->
-<!--                                    <li><a routerLink="dm-san-pham" routerLinkActive="active" jhiTranslate="global.menu.entities.tivi"></a></li>-->
-<!--                                </ul>-->
+                                <a routerLink="dm-san-pham" routerLinkActive="active">Tất cả sản phẩm</a>
                             </li>
                             <li class="has-child">
-                                <a routerLink="dm-dien-thoai" routerLinkActive="active"
-                                   jhiTranslate="global.menu.entities.dienthoai.dienthoai"></a>
-<!--                                <ul class="drop-menu">-->
-<!--                                    <li><a routerLink="dm-dien-thoai" routerLinkActive="active"-->
-<!--                                           jhiTranslate="global.menu.entities.dienthoai.iphone"> iphone </a></li>-->
-<!--                                    <li><a routerLink="dm-dien-thoai" routerLinkActive="active"-->
-<!--                                           jhiTranslate="global.menu.entities.dienthoai.samsung"> samsung </a></li>-->
-<!--                                    <li><a jhiTranslate="global.menu.entities.tivi"></a></li>-->
-<!--                                </ul>-->
+                                <a routerLink="dm-dien-thoai" routerLinkActive="active">Apple iPhone</a>
                             </li>
                             <li>
                                 <a routerLink="dm-lap-top" routerLinkActive="active"
-                                   jhiTranslate="global.menu.entities.laptop.laptop" style="height: 100px; vertical-align: middle"></a>
+                                   style="height: 100px; vertical-align: middle">Samsung</a>
                             </li>
                             <li>
                                 <a routerLink="hoa-don" routerLinkActive="active"
-                                   jhiTranslate="global.menu.entities.laptop.laptop" style="height: 100px; vertical-align: middle"></a>
+                                   style="height: 100px; vertical-align: middle">Xiaomi</a>
                             </li>
                             <li>
-                                <a href="">Trợ giúp</a>
+                                <a routerLink="hoa-don" routerLinkActive="active"
+                                   style="height: 100px; vertical-align: middle">Oppo</a>
+                            </li>
+                            <li>
+                                <a routerLink="hoa-don" routerLinkActive="active"
+                                   style="height: 100px; vertical-align: middle">Vsmart</a>
+                            </li>
+                            <li>
+                                <a routerLink="hoa-don" routerLinkActive="active"
+                                   style="height: 100px; vertical-align: middle">Các sản phẩm khác</a>
                             </li>
                             <li class="has-child">
-                                <a routerLink="dm-san-pham" routerLinkActive="active" jhiTranslate="global.menu.entities.taiKhoan"></a>
+                                <a routerLink="dm-san-pham" routerLinkActive="active"
+                                   jhiTranslate="global.menu.entities.taiKhoan"></a>
                                 <ul class="drop-menu">
-<!--                                    <li>-->
-<!--                                        <a routerLink="dm-san-pham" routerLinkActive="active" jhiTranslate="global.menu.entities.tivi"></a>-->
-<!--                                    </li>-->
+                                    <li *ngIf="user == 'admin'">
+                                        <a routerLink="hoa-don" routerLinkActive="active"
+                                           jhiTranslate="global.menu.entities.quanLyDonHang"></a>
+                                    </li>
                                     <li *ngSwitchCase="true">
-                                        <a routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <a routerLink="account/settings" routerLinkActive="active"
+                                           (click)="collapseNavbar()">
                                             <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
                                             <span>Settings</span>
                                         </a>
                                     </li>
                                     <li *ngSwitchCase="true">
-                                        <a routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <a routerLink="account/password" routerLinkActive="active"
+                                           (click)="collapseNavbar()">
                                             <span jhiTranslate="global.menu.account.password"></span>
                                             <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
                                         </a>
                                     </li>
                                     <li *ngSwitchCase="false">
-                                        <a routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <a routerLink="account/register" routerLinkActive="active"
+                                           (click)="collapseNavbar()">
                                             <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
                                             <span>Register</span>
                                         </a>

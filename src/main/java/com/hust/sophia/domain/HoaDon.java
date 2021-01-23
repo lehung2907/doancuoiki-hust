@@ -26,7 +26,7 @@ public class HoaDon implements Serializable {
     private String login;
 
     @Column(name = "dm_san_pham_id")
-    private Integer dmSanPhamId;
+    private Long dmSanPhamId;
 
     @Column(name = "so_luong")
     private Integer soLuong;
@@ -80,16 +80,16 @@ public class HoaDon implements Serializable {
         this.login = login;
     }
 
-    public Integer getDmSanPhamId() {
+    public Long getDmSanPhamId() {
         return dmSanPhamId;
     }
 
-    public HoaDon dmSanPhamId(Integer dmSanPhamId) {
+    public HoaDon dmSanPhamId(Long dmSanPhamId) {
         this.dmSanPhamId = dmSanPhamId;
         return this;
     }
 
-    public void setDmSanPhamId(Integer dmSanPhamId) {
+    public void setDmSanPhamId(Long dmSanPhamId) {
         this.dmSanPhamId = dmSanPhamId;
     }
 

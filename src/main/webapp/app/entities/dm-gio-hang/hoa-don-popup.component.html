@@ -10,23 +10,23 @@
         <div class="column col-md-7">
             <div class="form-group col-md-12">
                 <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.tenKhachHang"></label>
-                <input type="text" class="form-control" value=""/>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.tenKhachHang" required>
             </div>
             <div class="form-group col-md-12">
                 <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.sdt"></label>
-                <input type="text" class="form-control" value=""/>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.soDienThoai" required>
             </div>
             <div class="form-group col-md-12">
                 <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.email"></label>
-                <input type="text" class="form-control" value=""/>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.email" required>
             </div>
             <div class="form-group col-md-12">
                 <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.diaChi"></label>
-                <input type="text" class="form-control" value=""/>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.diaChi" required>
             </div>
             <div class="form-group col-md-12">
                 <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.ghiChu"></label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" id="comment" [(ngModel)]="thongTin.ghiChu"></textarea>
             </div>
         </div>
         <div class="column col-md-5">
