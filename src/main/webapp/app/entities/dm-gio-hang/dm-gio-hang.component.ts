@@ -8,6 +8,7 @@ import { IDmGioHang } from 'app/shared/model/dm-gio-hang.model';
 import { DmGioHangService } from './dm-gio-hang.service';
 import { DmGioHangDeleteDialogComponent } from './dm-gio-hang-delete-dialog.component';
 import { DmGioHangUpdateComponent } from './dm-gio-hang-update.component';
+import { DmGioHangDetailComponent } from './dm-gio-hang-detail.component';
 
 @Component({
   selector: 'jhi-dm-gio-hang',
@@ -73,6 +74,19 @@ export class DmGioHangComponent implements OnInit, OnDestroy {
   detail(data?: IDmGioHang): void {
     const modalRef = this.modalService.open(DmGioHangUpdateComponent, {
       backdrop: 'static',
+      centered: true,
+    });
+    modalRef.componentInstance.data = data;
+    modalRef.result.then(
+      () => {},
+      () => this.loadAll()
+    );
+  }
+
+  detailHoaDon(data?: IDmGioHang): void {
+    const modalRef = this.modalService.open(DmGioHangDetailComponent, {
+      backdrop: 'static',
+      size: 'lg',
       centered: true,
     });
     modalRef.componentInstance.data = data;

@@ -27,6 +27,10 @@ export class DmSanPhamService {
     return this.http.get<IDmSanPham>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  getAcount(req?: any): Observable<EntityArrayResponseType> {
+    return this.http.get<any>(`${this.resourceUrl}/getAccount`, { params: req, observe: 'response' });
+  }
+
   queryPageig(req?: any): Observable<EntityArrayResponseType> {
     return this.http.get<Array<any>>(`${this.resourceUrl}/queryPageig`, { params: req, observe: 'response' });
   }
