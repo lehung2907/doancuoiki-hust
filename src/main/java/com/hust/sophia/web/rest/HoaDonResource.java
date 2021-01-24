@@ -1,6 +1,8 @@
 package com.hust.sophia.web.rest;
 
+import com.hust.sophia.domain.DmGioHang;
 import com.hust.sophia.domain.HoaDon;
+import com.hust.sophia.repository.DmGioHangRepository;
 import com.hust.sophia.repository.HoaDonRepository;
 import com.hust.sophia.web.rest.errors.BadRequestAlertException;
 
@@ -35,8 +37,11 @@ public class HoaDonResource {
 
     private final HoaDonRepository hoaDonRepository;
 
-    public HoaDonResource(HoaDonRepository hoaDonRepository) {
+    private final DmGioHangRepository dmGioHangRepository;
+
+    public HoaDonResource(HoaDonRepository hoaDonRepository, DmGioHangRepository dmGioHangRepository) {
         this.hoaDonRepository = hoaDonRepository;
+        this.dmGioHangRepository = dmGioHangRepository;
     }
 
     /**
@@ -70,9 +75,9 @@ public class HoaDonResource {
     @PutMapping("/hoa-dons")
     public ResponseEntity<HoaDon> updateHoaDon(@RequestBody HoaDon hoaDon) throws URISyntaxException {
         log.debug("REST request to update HoaDon : {}", hoaDon);
-        if (hoaDon.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
+        DmGioHang dmGioHang = dmGioHangRepository.getOne(Long.parseLong(hoaDon.getTrangThai2()));
+        dmGioHang.setTrangThai(hoaDon.getTrangThai());
+        dmGioHangRepository.save(dmGioHang);
         HoaDon result = hoaDonRepository.save(hoaDon);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, hoaDon.getId().toString()))

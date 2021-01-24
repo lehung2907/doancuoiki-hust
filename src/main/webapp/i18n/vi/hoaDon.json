@@ -16,17 +16,17 @@
       "detail": {
         "title": "Hoa Don"
       },
-      "login": "Login",
-      "dmSanPhamId": "Dm San Pham Id",
-      "soLuong": "So Luong",
-      "gia": "Gia",
-      "ten": "Ten",
-      "diaChi": "Dia Chi",
-      "soDienThoai": "So Dien Thoai",
+      "login": "Tài khoản",
+      "dmSanPhamId": "Sản phẩm id",
+      "soLuong": "Số lượng",
+      "gia": "Gía",
+      "ten": "Tên khách hàng",
+      "diaChi": "Địa chỉ",
+      "soDienThoai": "Số điện thoại",
       "email": "Email",
-      "trangThai": "Trang Thai",
-      "ghiChu": "Ghi Chu",
-      "ngayLap": "Ngay Lap",
+      "trangThai": "Trạng thái",
+      "ghiChu": "Ghi chú",
+      "ngayLap": "Ngày lập",
       "trangThai2": "Trang Thai 2"
     }
   }

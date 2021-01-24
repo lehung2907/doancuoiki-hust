@@ -4,7 +4,7 @@
       "home": {
         "title": "Tất cả sản phẩm",
         "createLabel": "Thêm mới một Dm San Pham",
-        "createOrEditLabel": "Thêm mới hoặc cập nhật Dm San Pham",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật sản phẩm",
         "notFound": "No Dm San Phams found"
       },
       "created": "Một Dm San Pham mới được tạo với định danh {{ param }}",

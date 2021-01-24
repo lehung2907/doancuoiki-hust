@@ -6,7 +6,7 @@
         "title": "GIỎ HÀNG",
         "createLabel": "Thêm mới một Dm Gio Hang",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Dm Gio Hang",
-        "notFound": "No Dm Gio Hangs found"
+        "notFound": "Không có sản phẩm trong giỏ hàng"
       },
       "created": "Một Dm Gio Hang mới được tạo với định danh {{ param }}",
       "updated": "Một Dm Gio Hang cập nhật với định danh {{ param }}",

@@ -1,18 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span>Quản lý đơn hàng</span>
-
-<!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hoa-don" [routerLink]="['/hoa-don/new']">-->
-<!--            <fa-icon icon="plus"></fa-icon>-->
-<!--            <span  jhiTranslate="sophiaApp.hoaDon.home.createLabel">-->
-<!--            Create a new Hoa Don-->
-<!--            </span>-->
-<!--        </button>-->
     </h2>
-
-    <jhi-alert-error></jhi-alert-error>
-
-    <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="hoaDons?.length === 0">
         <span jhiTranslate="sophiaApp.hoaDon.home.notFound">No hoaDons found</span>
@@ -21,62 +10,58 @@
     <div class="table-responsive" id="entities" *ngIf="hoaDons && hoaDons.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.login">Login</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.dmSanPhamId">Dm San Pham Id</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.soLuong">So Luong</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.gia">Gia</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.ten">Ten</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.diaChi">Dia Chi</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.soDienThoai">So Dien Thoai</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.email">Email</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.trangThai">Trang Thai</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.ghiChu">Ghi Chu</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.ngayLap">Ngay Lap</span></th>
-                    <th scope="col" ><span jhiTranslate="sophiaApp.hoaDon.trangThai2">Trang Thai 2</span></th>
-                    <th scope="col"></th>
-                </tr>
+            <tr>
+                <th scope="col"><span jhiTranslate="global.field.id"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.login"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.dmSanPhamId"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.soLuong"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.gia"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.ten"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.diaChi"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.soDienThoai"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.email"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.trangThai"></span></th>
+                <th scope="col"><span jhiTranslate="sophiaApp.hoaDon.ngayLap"></span></th>
+                <th scope="col"></th>
+            </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let hoaDon of hoaDons ;trackBy: trackId">
-                    <td><a [routerLink]="['/hoa-don', hoaDon.id, 'view']">{{ hoaDon.id }}</a></td>
-                    <td>{{ hoaDon.login }}</td>
-                    <td>{{ hoaDon.dmSanPhamId }}</td>
-                    <td>{{ hoaDon.soLuong }}</td>
-                    <td>{{ hoaDon.gia }}</td>
-                    <td>{{ hoaDon.ten }}</td>
-                    <td>{{ hoaDon.diaChi }}</td>
-                    <td>{{ hoaDon.soDienThoai }}</td>
-                    <td>{{ hoaDon.email }}</td>
-                    <td>{{ hoaDon.trangThai }}</td>
-                    <td>{{ hoaDon.ghiChu }}</td>
-                    <td>{{ hoaDon.ngayLap | date:'mediumDate' }}</td>
-                    <td>{{ hoaDon.trangThai2 }}</td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit"
-                                    [routerLink]="['/hoa-don', hoaDon.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                            </button>
+            <tr *ngFor="let hoaDon of hoaDons ;trackBy: trackId">
+                <td><a [routerLink]="['/hoa-don', hoaDon.id, 'view']">{{ hoaDon.id }}</a></td>
+                <td>{{ hoaDon.login }}</td>
+                <td>{{ hoaDon.dmSanPhamId }}</td>
+                <td>{{ hoaDon.soLuong }}</td>
+                <td>{{ hoaDon.gia }}</td>
+                <td>{{ hoaDon.ten }}</td>
+                <td>{{ hoaDon.diaChi }}</td>
+                <td>{{ hoaDon.soDienThoai }}</td>
+                <td>{{ hoaDon.email }}</td>
+                <td>{{ hoaDon.trangThai }}</td>
+                <td>{{ hoaDon.ngayLap | date:'mediumDate' }}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/hoa-don', hoaDon.id, 'view']"
+                                class="btn btn-info btn-sm">
+                            <fa-icon icon="eye"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/hoa-don', hoaDon.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
+                        <button type="submit"
+                                [routerLink]="['/hoa-don', hoaDon.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon icon="pencil-alt"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
 
-                            <button type="submit" (click)="delete(hoaDon)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                        <button type="submit" (click)="delete(hoaDon)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon icon="times"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
