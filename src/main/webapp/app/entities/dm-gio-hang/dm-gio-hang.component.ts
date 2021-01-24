@@ -8,6 +8,7 @@ import { IDmGioHang } from 'app/shared/model/dm-gio-hang.model';
 import { DmGioHangService } from './dm-gio-hang.service';
 import { DmGioHangDeleteDialogComponent } from './dm-gio-hang-delete-dialog.component';
 import { DmGioHangUpdateComponent } from './dm-gio-hang-update.component';
+import { HoaDonPopupComponent } from './hoa-don-popup.component';
 
 @Component({
   selector: 'jhi-dm-gio-hang',
@@ -17,6 +18,7 @@ export class DmGioHangComponent implements OnInit, OnDestroy {
   dmGioHangs?: IDmGioHang[];
   eventSubscriber?: Subscription;
   tong?: any;
+  muaHangs: Array<IDmGioHang> = [];
 
   constructor(
     protected dmGioHangService: DmGioHangService,
@@ -32,7 +34,9 @@ export class DmGioHangComponent implements OnInit, OnDestroy {
       if (res.body) {
         this.dmGioHangs = res.body;
         for (let i = 0; i < this.dmGioHangs.length; i++) {
-          this.tong += this.dmGioHangs[i].thanhTien;
+          if (this.dmGioHangs[i].trangThai === 'Chờ thanh toán') {
+            this.tong += this.dmGioHangs[i].thanhTien;
+          }
         }
       }
     });
@@ -79,6 +83,28 @@ export class DmGioHangComponent implements OnInit, OnDestroy {
     modalRef.result.then(
       () => {},
       () => this.loadAll()
+    );
+  }
+
+  detailHoaDon(data?: IDmGioHang[]): void {
+    if (data) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].trangThai === 'Chờ thanh toán') {
+          this.muaHangs.push(data[i]);
+        }
+      }
+    }
+    const modalRef = this.modalService.open(HoaDonPopupComponent, {
+      backdrop: 'static',
+      size: 'xl',
+      centered: true,
+    });
+    modalRef.componentInstance.data = this.muaHangs;
+    modalRef.result.then(
+      () => {
+        this.loadAll();
+      },
+      () => {}
     );
   }
 }

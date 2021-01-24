@@ -1,0 +1,38 @@
+<div class="container">
+    <div *ngIf="dmSanPhams && dmSanPhams.length > 0">
+        <div class="row" style="padding: 15px;">
+            <div *ngFor="let product of dmSanPhams">
+                <div class="column">
+                    <div style="border: 1px solid #e2dbdb;  width: 222px; height: 350px;">
+                        <label jhiTranslate="sophiaApp.dmSanPham.tragop" class="btn btn-warning" style="margin: 6px; padding: 3px; color: #131313; width: 70px; height: 20px; font-size: 10px"></label>
+                        <div [routerLink]="['/dm-san-pham', product.id, 'view']" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;">
+                            <img [src]="'data:' + product.anhContentType + ';base64,' + product.anh" alt="dmSanPham image"/>
+                        </div>
+                        <br>
+                        <h6 style="margin-left: 10px;">{{product.ten}}</h6>
+                        <a style="margin-left: 10px; color: red">{{product.gia}}₫</a>
+                        <div style="margin-left: 55px; margin-right: 55px; height: 30px" [routerLink]="['/dm-san-pham', product.id, 'view']" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                            <a class="btn btn-warning" style="margin-left: auto; margin-right: auto; height: 30px; width: 105px!important;">  ĐẶT MUA </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calculation d-flex justify-content-between">
+        <div class="info-cal">
+            <div class="sum">
+                <h5><span jhiTranslate="page.sum.totalItem"></span>{{paging.totalItem}}</h5>
+            </div>
+            <div class="detail">
+                <h5 jhiTranslate="page.sum.itemPerPage"></h5>
+                <select [(ngModel)]="paging.pageSize" (ngModelChange)="loadAll()">
+                    <option *ngFor="let op of paging.pageSizes" [ngValue]="op">{{op}}</option>
+                </select>
+            </div>
+        </div>
+        <ngb-pagination [collectionSize]="paging.totalItem" [(page)]="paging.pageIndex" (pageChange)="loadAll()"
+                        [maxSize]="paging.maxSize" [pageSize]="paging.pageSize"
+                        [rotate]="true" [ellipses]="paging.ellipses" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</div>

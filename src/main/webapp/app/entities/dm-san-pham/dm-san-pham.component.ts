@@ -19,6 +19,7 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
   eventSubscriber?: Subscription;
   paging = new PagingModel();
   itemSearch?: any;
+  user?: any;
 
   constructor(
     protected dmSanPhamService: DmSanPhamService,
@@ -56,6 +57,11 @@ export class DmSanPhamComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.dmSanPhamService.getAcount().subscribe((res: HttpResponse<any>) => {
+      if (res.body) {
+        this.user = res.body.login;
+      }
+    });
     this.loadAll();
     this.registerChangeInDmSanPhams();
   }

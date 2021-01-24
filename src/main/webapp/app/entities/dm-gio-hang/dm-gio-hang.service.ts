@@ -30,6 +30,10 @@ export class DmGioHangService {
     return this.http.get<IDmGioHang[]>(this.resourceUrl, { params: req, observe: 'response' });
   }
 
+  saveHoaDon(req?: any): Observable<HttpResponse<{}>> {
+    return this.http.post<any>(`${this.resourceUrl}/saveHoaDon`, req, { observe: 'response' });
+  }
+
   querySl(req?: any): Observable<EntityArrayResponseType> {
     return this.http.get<IDmGioHang[]>(`${this.resourceUrl}/sl`, { params: req, observe: 'response' });
   }

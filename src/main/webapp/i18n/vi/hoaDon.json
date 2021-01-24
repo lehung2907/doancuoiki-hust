@@ -1,0 +1,33 @@
+{
+  "sophiaApp": {
+    "hoaDon": {
+      "home": {
+        "title": "Hoa Dons",
+        "createLabel": "Thêm mới một Hoa Don",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Hoa Don",
+        "notFound": "No Hoa Dons found"
+      },
+      "created": "Một Hoa Don mới được tạo với định danh {{ param }}",
+      "updated": "Một Hoa Don cập nhật với định danh {{ param }}",
+      "deleted": "Một Hoa Don đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Hoa Don {{ id }}?"
+      },
+      "detail": {
+        "title": "Hoa Don"
+      },
+      "login": "Login",
+      "dmSanPhamId": "Dm San Pham Id",
+      "soLuong": "So Luong",
+      "gia": "Gia",
+      "ten": "Ten",
+      "diaChi": "Dia Chi",
+      "soDienThoai": "So Dien Thoai",
+      "email": "Email",
+      "trangThai": "Trang Thai",
+      "ghiChu": "Ghi Chu",
+      "ngayLap": "Ngay Lap",
+      "trangThai2": "Trang Thai 2"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<div class="modal-header" style="display: flex; background: #ffc107; font-size: 20px; font-weight: bold;">
+    <h4 class="text-center"><span class="text-center" jhiTranslate="sophiaApp.dmGioHang.home.thongTinDonHang"></span>
+    </h4>
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body pad modal-detail-body">
+    <div class="row">
+        <div class="column col-md-7">
+            <div class="form-group col-md-12">
+                <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.tenKhachHang"></label>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.tenKhachHang" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.sdt"></label>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.soDienThoai" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.email"></label>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.email" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.diaChi"></label>
+                <input type="text" class="form-control" [(ngModel)]="thongTin.diaChi" required>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="label-sm" jhiTranslate="sophiaApp.dmGioHang.ghiChu"></label>
+                <textarea class="form-control" rows="5" id="comment" [(ngModel)]="thongTin.ghiChu"></textarea>
+            </div>
+        </div>
+        <div class="column col-md-5">
+            <div class="row" *ngFor="let dmGioHang of data">
+                <div class="column col-md-6">
+                    <td>
+                        <a *ngIf="dmGioHang.anhSp" (click)="openFile(dmGioHang.anhSpContentType, dmGioHang.anhSp)">
+                            <img [src]="'data:' + dmGioHang.anhSpContentType + ';base64,' + dmGioHang.anhSp"
+                                 style="width: 150px; height: 150px; margin-left: 30px; margin-right: 30px;"
+                                 alt="dmGioHang image"/>
+                        </a>
+                    </td>
+                </div>
+                <div class="column col-md-6">
+                    <div><br></div>
+                    <div>Sản phẩm: {{ dmGioHang.chiTiet }}</div>
+                    <div>Số lượng: {{ dmGioHang.soLuong }}</div>
+                    <div>Giá: {{ dmGioHang.gia }}₫</div>
+                    <div>Thành tiền: {{ dmGioHang.thanhTien }}₫</div>
+                </div>
+            </div>
+            <div><br></div>
+            <div class="text-center" style="color: red"><a style="font-size: 20px">Tổng tiền: {{ tong }}₫</a></div>
+        </div>
+    </div>
+    <div><br></div>
+    <div>
+        <h4><a>Phương thức thanh toán:</a></h4>
+        <div class="form-check">
+            <label class="form-check-label">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                type="radio" class="form-check-input" checked> <a style="font-size: 20px; color: #fd7e14">Thánh toán khi
+                nhận hàng</a>
+            </label>
+        </div>
+    </div>
+    <div><br></div>
+</div>
+<div class="modal-footer modal-detail-footer">
+    <button ngbAutofocus class="btn btn-primary float-left" type="button" (click)="save()">
+        <span jhiTranslate="entity.action.hoanThanh"></span>
+    </button>
+</div>
+
+
+<!--<div class="row justify-content-center">-->
+<!--    <div class="col-8">-->
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.login" for="field_login">Login</label>-->
+<!--            <input type="text" class="form-control" name="login" id="field_login"-->
+<!--                   formControlName="login"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.dmSanPhamId" for="field_dmSanPhamId">Dm San-->
+<!--                Pham Id</label>-->
+<!--            <input type="number" class="form-control" name="dmSanPhamId" id="field_dmSanPhamId"-->
+<!--                   formControlName="dmSanPhamId"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soLuong" for="field_soLuong">So-->
+<!--                Luong</label>-->
+<!--            <input type="number" class="form-control" name="soLuong" id="field_soLuong"-->
+<!--                   formControlName="soLuong"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.gia" for="field_gia">Gia</label>-->
+<!--            <input type="number" class="form-control" name="gia" id="field_gia"-->
+<!--                   formControlName="gia"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ten" for="field_ten">Ten</label>-->
+<!--            <input type="text" class="form-control" name="ten" id="field_ten"-->
+<!--                   formControlName="ten"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.diaChi" for="field_diaChi">Dia Chi</label>-->
+<!--            <input type="text" class="form-control" name="diaChi" id="field_diaChi"-->
+<!--                   formControlName="diaChi"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soDienThoai" for="field_soDienThoai">So-->
+<!--                Dien Thoai</label>-->
+<!--            <input type="text" class="form-control" name="soDienThoai" id="field_soDienThoai"-->
+<!--                   formControlName="soDienThoai"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.email" for="field_email">Email</label>-->
+<!--            <input type="text" class="form-control" name="email" id="field_email"-->
+<!--                   formControlName="email"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai" for="field_trangThai">Trang-->
+<!--                Thai</label>-->
+<!--            <input type="text" class="form-control" name="trangThai" id="field_trangThai"-->
+<!--                   formControlName="trangThai"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ghiChu" for="field_ghiChu">Ghi Chu</label>-->
+<!--            <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"-->
+<!--                   formControlName="ghiChu"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ngayLap" for="field_ngayLap">Ngay-->
+<!--                Lap</label>-->
+<!--            <div class="input-group">-->
+<!--                <input id="field_ngayLap" type="text" class="form-control" name="ngayLap" ngbDatepicker-->
+<!--                       #ngayLapDp="ngbDatepicker" formControlName="ngayLap"/>-->
+<!--                <span class="input-group-append">-->
+<!--                            <button type="button" class="btn btn-secondary" (click)="ngayLapDp.toggle()"><fa-icon-->
+<!--                                icon="calendar-alt"></fa-icon></button>-->
+<!--                        </span>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai2" for="field_trangThai2">Trang-->
+<!--                Thai 2</label>-->
+<!--            <input type="text" class="form-control" name="trangThai2" id="field_trangThai2"-->
+<!--                   formControlName="trangThai2"/>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

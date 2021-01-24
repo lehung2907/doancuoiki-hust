@@ -3,6 +3,8 @@ package com.hust.sophia.web.rest;
 import com.hust.sophia.config.Constants;
 import com.hust.sophia.domain.DmSanPham;
 import com.hust.sophia.repository.DmSanPhamRepository;
+import com.hust.sophia.service.UserService;
+import com.hust.sophia.service.dto.UserDTO;
 import com.hust.sophia.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -35,6 +37,12 @@ import java.util.Optional;
 @Transactional
 public class DmSanPhamResource {
 
+    private static class AccountResourceException extends RuntimeException {
+        private AccountResourceException(String message) {
+            super(message);
+        }
+    }
+
     private final Logger log = LoggerFactory.getLogger(DmSanPhamResource.class);
 
     private static final String ENTITY_NAME = "dmSanPham";
@@ -44,8 +52,11 @@ public class DmSanPhamResource {
 
     private final DmSanPhamRepository dmSanPhamRepository;
 
-    public DmSanPhamResource(DmSanPhamRepository dmSanPhamRepository) {
+    private final UserService userService;
+
+    public DmSanPhamResource(DmSanPhamRepository dmSanPhamRepository, UserService userService) {
         this.dmSanPhamRepository = dmSanPhamRepository;
+        this.userService = userService;
     }
 
     @PostMapping("/dm-san-phams")
@@ -93,6 +104,13 @@ public class DmSanPhamResource {
         log.debug("REST request to delete DmSanPham : {}", id);
         dmSanPhamRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/dm-san-phams/getAccount")
+    public UserDTO getAccount() {
+        log.debug("REST request to get getAccount");
+        UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmSanPhamResource.AccountResourceException("User could not be found"));
+        return user;
     }
 
     @GetMapping("/dm-san-phams/dienthoais")

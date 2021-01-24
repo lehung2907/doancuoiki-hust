@@ -1,7 +1,7 @@
 <div class="container">
     <h2>
         <span jhiTranslate="sophiaApp.dmSanPham.home.title">Dm San Phams</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dm-san-pham" [routerLink]="['/dm-san-pham/new']">
+        <button *ngIf="user == 'admin'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dm-san-pham" [routerLink]="['/dm-san-pham/new']">
             <fa-icon icon="plus"></fa-icon>
             <span jhiTranslate="sophiaApp.dmSanPham.home.createLabel"></span>
         </button>
