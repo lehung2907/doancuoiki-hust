@@ -14,14 +14,18 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface DmSanPhamRepository extends JpaRepository<DmSanPham, Long> {
+public interface  DmSanPhamRepository extends JpaRepository<DmSanPham, Long> {
 
-    Page<DmSanPham> findAllByLoaiSanPham(Pageable pageable, String loaiSanPham);
+    Page<DmSanPham> findAllByLoaiSanPhamAndTrangThaiNot(Pageable pageable, String loaiSanPham, String trangThai);
 
-    List<DmSanPham> findAllByLoaiSanPham(String loaiSanPham);
+    List<DmSanPham> findAllByLoaiSanPhamAndTrangThaiNot(String loaiSanPham, String trangThai);
 
     Page<DmSanPham> findAllByTenLike(Pageable pageable, String loaiSanPham);
 
-    @Query(value = " SELECT * FROM dm_san_pham WHERE ten LIKE %?1%", nativeQuery = true)
+    @Query(value = " SELECT * FROM dm_san_pham WHERE ten LIKE %?1% ", nativeQuery = true)
     List<DmSanPham> findAllByTen(String ten);
+
+    Page<DmSanPham> findAllByTrangThaiNot(Pageable pageable, String trangThai);
+
+    List<DmSanPham> findAllByTrangThaiNot(String trangThai);
 }

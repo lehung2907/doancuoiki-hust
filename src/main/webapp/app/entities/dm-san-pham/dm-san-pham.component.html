@@ -19,9 +19,9 @@
                         </div>
                         <br>
                         <h6 style="margin-left: 10px;">{{product.ten}}</h6>
-                        <h6 style="margin-left: 10px;">{{product.gia}}₫</h6>
-                        <div style="margin-left: 10px;" [routerLink]="['/dm-san-pham', product.id, 'view']" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                            <a class="btn btn-warning">  ĐẶT MUA </a>
+                        <h6 style="margin-left: 10px; color: red">{{product.gia}}₫</h6>
+                        <div style="margin-left: 55px; margin-right: 55px; height: 30px" [routerLink]="['/dm-san-pham', product.id, 'view']" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+                            <a class="btn btn-warning" style="margin-left: auto; margin-right: auto; height: 30px; width: 105px!important;">  ĐẶT MUA </a>
                         </div>
                     </div>
                 </div>

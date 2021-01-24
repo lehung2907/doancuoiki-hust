@@ -33,8 +33,7 @@ export class DmDienThoaiVsmartComponent implements OnInit, OnDestroy {
   }
 
   loadAll(): void {
-    // this.dmSanPhamService.queryAllDienThoai().subscribe((res: HttpResponse<IDmSanPham[]>) => (this.dmSanPhams = res.body || []));
-    this.dmSanPhamService.queryAllDienThoai(this.itemSearch).subscribe(
+    this.dmSanPhamService.queryVmart(this.itemSearch).subscribe(
       (res: HttpResponse<Array<any>>) => {
         if (res.body) {
           this.dmSanPhams = res.body || [];

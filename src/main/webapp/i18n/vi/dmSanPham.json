@@ -2,7 +2,7 @@
   "sophiaApp": {
     "dmSanPham": {
       "home": {
-        "title": "Dm San Phams",
+        "title": "Tất cả sản phẩm",
         "createLabel": "Thêm mới một Dm San Pham",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Dm San Pham",
         "notFound": "No Dm San Phams found"
