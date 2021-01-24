@@ -49,6 +49,31 @@ export class DmSanPhamService {
     return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/laptops`, { params: options, observe: 'response' });
   }
 
+  querySamSung(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/samsung`, { params: options, observe: 'response' });
+  }
+
+  queryXiaomi(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/xiaomi`, { params: options, observe: 'response' });
+  }
+
+  queryOppo(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/oppo`, { params: options, observe: 'response' });
+  }
+
+  queryVmart(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/vsmart`, { params: options, observe: 'response' });
+  }
+
+  queryspKhac(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IDmSanPham[]>(`${this.resourceUrl}/spKhac`, { params: options, observe: 'response' });
+  }
+
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }

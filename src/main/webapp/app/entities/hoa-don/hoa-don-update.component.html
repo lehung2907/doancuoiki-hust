@@ -1,102 +1,120 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-hoa-don-heading" jhiTranslate="sophiaApp.hoaDon.home.createOrEditLabel">Create or edit a Hoa Don</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-hoa-don-heading" jhiTranslate="sophiaApp.hoaDon.home.createOrEditLabel">Create or edit a Hoa
+                    Don</h2>
 
-            <div>
-                <jhi-alert-error></jhi-alert-error>
+                <div>
+                    <jhi-alert-error></jhi-alert-error>
 
-                <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div>
+                    <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.login" for="field_login">Login</label>
-                    <input type="text" class="form-control" name="login" id="field_login"
-                           formControlName="login"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.login"
+                               for="field_login">Login</label>
+                        <input type="text" class="form-control" name="login" id="field_login"
+                               formControlName="login"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.dmSanPhamId" for="field_dmSanPhamId">Dm San Pham Id</label>
-                    <input type="number" class="form-control" name="dmSanPhamId" id="field_dmSanPhamId"
-                           formControlName="dmSanPhamId"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.dmSanPhamId"
+                               for="field_dmSanPhamId">Dm San Pham Id</label>
+                        <input type="number" class="form-control" name="dmSanPhamId" id="field_dmSanPhamId"
+                               formControlName="dmSanPhamId"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soLuong" for="field_soLuong">So Luong</label>
-                    <input type="number" class="form-control" name="soLuong" id="field_soLuong"
-                           formControlName="soLuong"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soLuong" for="field_soLuong">So
+                            Luong</label>
+                        <input type="number" class="form-control" name="soLuong" id="field_soLuong"
+                               formControlName="soLuong"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.gia" for="field_gia">Gia</label>
-                    <input type="number" class="form-control" name="gia" id="field_gia"
-                           formControlName="gia"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.gia"
+                               for="field_gia">Gia</label>
+                        <input type="number" class="form-control" name="gia" id="field_gia"
+                               formControlName="gia"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ten" for="field_ten">Ten</label>
-                    <input type="text" class="form-control" name="ten" id="field_ten"
-                           formControlName="ten"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ten"
+                               for="field_ten">Ten</label>
+                        <input type="text" class="form-control" name="ten" id="field_ten"
+                               formControlName="ten"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.diaChi" for="field_diaChi">Dia Chi</label>
-                    <input type="text" class="form-control" name="diaChi" id="field_diaChi"
-                           formControlName="diaChi"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.diaChi" for="field_diaChi">Dia
+                            Chi</label>
+                        <input type="text" class="form-control" name="diaChi" id="field_diaChi"
+                               formControlName="diaChi"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soDienThoai" for="field_soDienThoai">So Dien Thoai</label>
-                    <input type="text" class="form-control" name="soDienThoai" id="field_soDienThoai"
-                           formControlName="soDienThoai"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.soDienThoai"
+                               for="field_soDienThoai">So Dien Thoai</label>
+                        <input type="text" class="form-control" name="soDienThoai" id="field_soDienThoai"
+                               formControlName="soDienThoai"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.email" for="field_email">Email</label>
-                    <input type="text" class="form-control" name="email" id="field_email"
-                           formControlName="email"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.email"
+                               for="field_email">Email</label>
+                        <input type="text" class="form-control" name="email" id="field_email"
+                               formControlName="email"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai" for="field_trangThai">Trang Thai</label>
-                    <input type="text" class="form-control" name="trangThai" id="field_trangThai"
-                           formControlName="trangThai"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai"
+                               for="field_trangThai">Trang Thai</label>
+                        <input type="text" class="form-control" name="trangThai" id="field_trangThai"
+                               formControlName="trangThai"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ghiChu" for="field_ghiChu">Ghi Chu</label>
-                    <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
-                           formControlName="ghiChu"/>
-                </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ghiChu" for="field_ghiChu">Ghi
+                            Chu</label>
+                        <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
+                               formControlName="ghiChu"/>
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ngayLap" for="field_ngayLap">Ngay Lap</label>
-                    <div class="input-group">
-                        <input id="field_ngayLap" type="text" class="form-control" name="ngayLap" ngbDatepicker #ngayLapDp="ngbDatepicker" formControlName="ngayLap"/>
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="ngayLapDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ngayLap" for="field_ngayLap">Ngay
+                            Lap</label>
+                        <div class="input-group">
+                            <input id="field_ngayLap" type="text" class="form-control" name="ngayLap" ngbDatepicker
+                                   #ngayLapDp="ngbDatepicker" formControlName="ngayLap"/>
+                            <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ngayLapDp.toggle()"><fa-icon
+                                icon="calendar-alt"></fa-icon></button>
                         </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai2"
+                               for="field_trangThai2">Trang Thai 2</label>
+                        <input type="text" class="form-control" name="trangThai2" id="field_trangThai2"
+                               formControlName="trangThai2"/>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai2" for="field_trangThai2">Trang Thai 2</label>
-                    <input type="text" class="form-control" name="trangThai2" id="field_trangThai2"
-                           formControlName="trangThai2"/>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                            class="btn btn-primary">
+                        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
                 </div>
-            </div>
-
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>

@@ -14,6 +14,9 @@ import java.util.List;
 @Repository
 public interface DmGioHangRepository extends JpaRepository<DmGioHang, Long> {
 
-    List<DmGioHang> findAllByLogin(String login);
+    @Query(value = " SELECT * FROM dm_gio_hang WHERE login = ?1 order by hoa_don_id ", nativeQuery = true)
+    List<DmGioHang> findAllByLoginAndTrangThai(String login);
 
+    @Query(value = " SELECT * FROM dm_gio_hang order by hoa_don_id ", nativeQuery = true)
+    List<DmGioHang> findAllByTrangThai();
 }

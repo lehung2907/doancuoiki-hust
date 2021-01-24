@@ -41,7 +41,7 @@
                 </div>
                 <div class="media align-items-center col-lg-0">
                     <div class="media-body mr-3" style="font-size: 12px">
-                        <a>Sophia</a>
+                        <a>{{user}}</a>
                     </div>
                     <a href="" class="">
                         <img src="/content/assets/images/ic_user.png" alt="Generic placeholder image">
@@ -59,23 +59,23 @@
                                 <a routerLink="dm-dien-thoai" routerLinkActive="active">Apple iPhone</a>
                             </li>
                             <li>
-                                <a routerLink="dm-lap-top" routerLinkActive="active"
+                                <a routerLink="dm-dien-thoai-samsung" routerLinkActive="active"
                                    style="height: 100px; vertical-align: middle">Samsung</a>
                             </li>
                             <li>
-                                <a routerLink="hoa-don" routerLinkActive="active"
+                                <a routerLink="dm-dien-thoai-xiaomi" routerLinkActive="active"
                                    style="height: 100px; vertical-align: middle">Xiaomi</a>
                             </li>
                             <li>
-                                <a routerLink="hoa-don" routerLinkActive="active"
+                                <a routerLink="dm-dien-thoai-oppo" routerLinkActive="active"
                                    style="height: 100px; vertical-align: middle">Oppo</a>
                             </li>
                             <li>
-                                <a routerLink="hoa-don" routerLinkActive="active"
+                                <a routerLink="dm-dien-thoai-vsmart" routerLinkActive="active"
                                    style="height: 100px; vertical-align: middle">Vsmart</a>
                             </li>
                             <li>
-                                <a routerLink="hoa-don" routerLinkActive="active"
+                                <a routerLink="dm-dien-thoai-khac" routerLinkActive="active"
                                    style="height: 100px; vertical-align: middle">Các sản phẩm khác</a>
                             </li>
                             <li class="has-child">
@@ -85,6 +85,12 @@
                                     <li *ngIf="user == 'admin'">
                                         <a routerLink="hoa-don" routerLinkActive="active"
                                            jhiTranslate="global.menu.entities.quanLyDonHang"></a>
+                                    </li>
+                                    <li *ngIf="user == 'admin'">
+                                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
+                                            <fa-icon icon="user" [fixedWidth]="true"></fa-icon>
+                                            <span>User management</span>
+                                        </a>
                                     </li>
                                     <li *ngSwitchCase="true">
                                         <a routerLink="account/settings" routerLinkActive="active"

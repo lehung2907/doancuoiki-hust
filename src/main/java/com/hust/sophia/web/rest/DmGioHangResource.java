@@ -24,7 +24,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -87,7 +86,11 @@ public class DmGioHangResource {
         dto.setAnhSp(dmSanPham.getAnh());
         dto.setAnhSpContentType(dmSanPham.getAnhContentType());
         dto.setSoLuong(1);
+        dto.setChiTiet(dmSanPham.getTen());
         dto.setGia(Integer.valueOf(dmSanPham.getGia()));
+        dto.setThanhTien(Integer.valueOf(dmSanPham.getGia()));
+        dto.setTrangThai("Chờ thanh toán");
+        dto.setHoaDonId(1);
         DmGioHang result = dmGioHangRepository.save(dto);
         return ResponseEntity.created(new URI("/api/dm-gio-hangs/addSanPham/" + id))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, id.toString()))
@@ -125,20 +128,20 @@ public class DmGioHangResource {
         List<DmGioHang> results = new ArrayList<>();
         UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
         if (user.getLogin().equalsIgnoreCase("admin")) {
-            results = dmGioHangRepository.findAll();
+            results = dmGioHangRepository.findAllByTrangThai();
         } else {
-            results = dmGioHangRepository.findAllByLogin(user.getLogin());
+            results = dmGioHangRepository.findAllByLoginAndTrangThai(user.getLogin());
         }
-        for (DmGioHang dmGioHang : results) {
-            if (dmGioHang.getTrangThai().equals("0"))
-                dmGioHang.setTrangThai("Chờ thanh toán");
-            else if (dmGioHang.getTrangThai().equals("1"))
-                dmGioHang.setTrangThai("Đang giao hàng");
-            else if (dmGioHang.getTrangThai().equals("2"))
-                dmGioHang.setTrangThai("Giao hàng thành công");
-            else if (dmGioHang.getTrangThai().equals("3"))
-                dmGioHang.setTrangThai("Giao hàng thất bại");
-        }
+//        for (DmGioHang dmGioHang : results) {
+//            if (dmGioHang.getTrangThai().equals("0"))
+//                dmGioHang.setTrangThai("Chờ thanh toán");
+//            else if (dmGioHang.getTrangThai().equals("1"))
+//                dmGioHang.setTrangThai("Đang giao hàng");
+//            else if (dmGioHang.getTrangThai().equals("2"))
+//                dmGioHang.setTrangThai("Giao hàng thành công");
+//            else if (dmGioHang.getTrangThai().equals("3"))
+//                dmGioHang.setTrangThai("Giao hàng thất bại");
+//        }
         return results;
     }
 
@@ -146,8 +149,6 @@ public class DmGioHangResource {
     public ResponseEntity<Void> saveHoaDon(@RequestBody DmGioHangDTO dmGioHangs) {
         log.debug("REST request to delete DmGioHang");
         UserDTO user = userService.getUserWithAuthorities().map(UserDTO::new).orElseThrow(() -> new DmGioHangResource.AccountResourceException("User could not be found"));
-//        List<HoaDon> hoaDons = new ArrayList<>();
-//        List<DmGioHang> gioHangs = new ArrayList<>();
         for (DmGioHang gh : dmGioHangs.getDmGioHangs()) {
             HoaDon hoaDon = new HoaDon();
             DmSanPham dmSanPham = dmSanPhamRepository.getOne(gh.getDmSanPhamId());
@@ -164,16 +165,12 @@ public class DmGioHangResource {
             hoaDon.setEmail(dmGioHangs.getEmail());
             hoaDon.setTrangThai("Đang giao hàng");
             hoaDon.setNgayLap(LocalDate.now());
-//            hoaDons.add(hoaDon);
-            dmGioHang.setTrangThai("Hưng đã thanh toán...");
-//            gioHangs.add(dmGioHang);
-            dmSanPham.setSim("ahung");
+            hoaDon.setTrangThai2(gh.getId().toString());
+            dmGioHang.setTrangThai("Đang giao hàng");
             dmSanPhamRepository.save(dmSanPham);
             hoaDonRepository.save(hoaDon);
             dmGioHangRepository.save(dmGioHang);
         }
-//        hoaDonRepository.saveAll(hoaDons);
-//        dmGioHangRepository.saveAll(gioHangs);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, "")).build();
     }
 

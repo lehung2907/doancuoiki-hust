@@ -1,74 +1,76 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="hoaDon">
-            <h2><span jhiTranslate="sophiaApp.hoaDon.detail.title">Hoa Don</span> {{ hoaDon.id }}</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="hoaDon">
+                <h2><span jhiTranslate="sophiaApp.hoaDon.detail.title">Hoa Don</span> {{ hoaDon.id }}</h2>
 
-            <hr>
+                <hr>
 
-            <jhi-alert-error></jhi-alert-error>
+                <jhi-alert-error></jhi-alert-error>
 
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="sophiaApp.hoaDon.login">Login</span></dt>
-                <dd>
-                    <span>{{ hoaDon.login }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.dmSanPhamId">Dm San Pham Id</span></dt>
-                <dd>
-                    <span>{{ hoaDon.dmSanPhamId }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.soLuong">So Luong</span></dt>
-                <dd>
-                    <span>{{ hoaDon.soLuong }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.gia">Gia</span></dt>
-                <dd>
-                    <span>{{ hoaDon.gia }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.ten">Ten</span></dt>
-                <dd>
-                    <span>{{ hoaDon.ten }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.diaChi">Dia Chi</span></dt>
-                <dd>
-                    <span>{{ hoaDon.diaChi }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.soDienThoai">So Dien Thoai</span></dt>
-                <dd>
-                    <span>{{ hoaDon.soDienThoai }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.email">Email</span></dt>
-                <dd>
-                    <span>{{ hoaDon.email }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.trangThai">Trang Thai</span></dt>
-                <dd>
-                    <span>{{ hoaDon.trangThai }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.ghiChu">Ghi Chu</span></dt>
-                <dd>
-                    <span>{{ hoaDon.ghiChu }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.ngayLap">Ngay Lap</span></dt>
-                <dd>
-                    <span>{{ hoaDon.ngayLap }}</span>
-                </dd>
-                <dt><span jhiTranslate="sophiaApp.hoaDon.trangThai2">Trang Thai 2</span></dt>
-                <dd>
-                    <span>{{ hoaDon.trangThai2 }}</span>
-                </dd>
-            </dl>
+                <dl class="row-md jh-entity-details">
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.login">Login</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.login }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.dmSanPhamId">Dm San Pham Id</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.dmSanPhamId }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.soLuong">So Luong</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.soLuong }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.gia">Gia</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.gia }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.ten">Ten</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.ten }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.diaChi">Dia Chi</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.diaChi }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.soDienThoai">So Dien Thoai</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.soDienThoai }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.email">Email</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.email }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.trangThai">Trang Thai</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.trangThai }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.ghiChu">Ghi Chu</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.ghiChu }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.ngayLap">Ngay Lap</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.ngayLap }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="sophiaApp.hoaDon.trangThai2">Trang Thai 2</span></dt>
+                    <dd>
+                        <span>{{ hoaDon.trangThai2 }}</span>
+                    </dd>
+                </dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
-            </button>
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                </button>
 
-            <button type="button"
-                    [routerLink]="['/hoa-don', hoaDon.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
-            </button>
+                <button type="button"
+                        [routerLink]="['/hoa-don', hoaDon.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./oppo/oppo.module').then(m => m.SophiaOppoModule),
       },
       {
-        path: 'dm-dien-thoai-oppo',
+        path: 'dm-dien-thoai-samsung',
         loadChildren: () => import('./samsung/samsung.module').then(m => m.SophiaDmDienThoaiSamsungModule),
       },
       {

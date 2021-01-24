@@ -86,8 +86,10 @@ public class DmSanPhamResource {
     @GetMapping("/dm-san-phams/queryPageig")
     public ResponseEntity<List<DmSanPham>> getAllDmSanPhams(Pageable pageable) {
         log.debug("REST request to get all DmSanPhams");
-        Page<DmSanPham> result = dmSanPhamRepository.findAll(pageable);
-        List<DmSanPham> contens = dmSanPhamRepository.findAll();
+//        Page<DmSanPham> result = dmSanPhamRepository.findAll(pageable);
+//        List<DmSanPham> contens = dmSanPhamRepository.findAll();
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByTrangThaiNot(pageable, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByTrangThaiNot("0");
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
         return ResponseEntity.ok().headers(headers).body(contens);
     }
@@ -113,20 +115,62 @@ public class DmSanPhamResource {
         return user;
     }
 
+    /*iphone*/
     @GetMapping("/dm-san-phams/dienthoais")
     public ResponseEntity<List<DmSanPham>> getAllDmSanPhamDienThoai(Pageable pageable) {
         log.debug("REST request to get all getAllDmSanPhamDienThoai");
-        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPham(pageable,Constants.PHONE);
-        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPham(Constants.PHONE);
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.IPHONE, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.IPHONE, "0");
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
         return ResponseEntity.ok().headers(headers).body(contens);
     }
 
-    @GetMapping("/dm-san-phams/laptops")
-    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamLapTop(Pageable pageable) {
+    /*samsung*/
+    @GetMapping("/dm-san-phams/samsung")
+    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamSamsung(Pageable pageable) {
         log.debug("REST request to get all DmSanPhams");
-        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPham(pageable,Constants.LAPTOP);
-        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPham(Constants.LAPTOP);
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.SAMSUNG, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.SAMSUNG, "0");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
+        return ResponseEntity.ok().headers(headers).body(contens);
+    }
+
+    /*xiaomi*/
+    @GetMapping("/dm-san-phams/xiaomi")
+    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamXiaomi(Pageable pageable) {
+        log.debug("REST request to get all DmSanPhams");
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.XIAOMI, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.XIAOMI, "0");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
+        return ResponseEntity.ok().headers(headers).body(contens);
+    }
+
+    /*oppo*/
+    @GetMapping("/dm-san-phams/oppo")
+    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamOppo(Pageable pageable) {
+        log.debug("REST request to get all DmSanPhams");
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.OPPO, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.OPPO, "0");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
+        return ResponseEntity.ok().headers(headers).body(contens);
+    }
+
+    /*vsmart*/
+    @GetMapping("/dm-san-phams/vsmart")
+    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamVsmart(Pageable pageable) {
+        log.debug("REST request to get all DmSanPhams");
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.VSMART, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.VSMART, "0");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
+        return ResponseEntity.ok().headers(headers).body(contens);
+    }
+
+    /*spKhac*/
+    @GetMapping("/dm-san-phams/spKhac")
+    public ResponseEntity<List<DmSanPham>> getAllDmSanPhamSpKhac(Pageable pageable) {
+        log.debug("REST request to get all DmSanPhams");
+        Page<DmSanPham> result = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(pageable, Constants.KHAC, "0");
+        List<DmSanPham> contens = dmSanPhamRepository.findAllByLoaiSanPhamAndTrangThaiNot(Constants.KHAC, "0");
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), result);
         return ResponseEntity.ok().headers(headers).body(contens);
     }
