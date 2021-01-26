@@ -5,7 +5,7 @@
         "title": "Hoa Dons",
         "createLabel": "Thêm mới một Hoa Don",
         "createOrEditLabel": "Thêm mới hoặc cập nhật Hoa Don",
-        "notFound": "No Hoa Dons found"
+        "notFound": "Không có hóa đơn nào để hiển thị"
       },
       "created": "Một Hoa Don mới được tạo với định danh {{ param }}",
       "updated": "Một Hoa Don cập nhật với định danh {{ param }}",

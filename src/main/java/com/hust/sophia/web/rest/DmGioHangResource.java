@@ -165,8 +165,9 @@ public class DmGioHangResource {
             hoaDon.setEmail(dmGioHangs.getEmail());
             hoaDon.setTrangThai("Đang giao hàng");
             hoaDon.setNgayLap(LocalDate.now());
-            hoaDon.setTrangThai2(gh.getId().toString());
+            hoaDon.setTrangThai2(gh.getId().toString());//id gio hang
             dmGioHang.setTrangThai("Đang giao hàng");
+            dmGioHang.setHoaDonId(2);
             dmSanPhamRepository.save(dmSanPham);
             hoaDonRepository.save(hoaDon);
             dmGioHangRepository.save(dmGioHang);

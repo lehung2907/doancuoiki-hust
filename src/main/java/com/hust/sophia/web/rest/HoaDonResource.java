@@ -77,7 +77,14 @@ public class HoaDonResource {
         log.debug("REST request to update HoaDon : {}", hoaDon);
         DmGioHang dmGioHang = dmGioHangRepository.getOne(Long.parseLong(hoaDon.getTrangThai2()));
         dmGioHang.setTrangThai(hoaDon.getTrangThai());
+        if (hoaDon.getTrangThai().equalsIgnoreCase("Đang giao hàng"))
+            dmGioHang.setHoaDonId(2);
+        else if (hoaDon.getTrangThai().equalsIgnoreCase("Giao hàng thành công"))
+            dmGioHang.setHoaDonId(3);
+        else
+            dmGioHang.setHoaDonId(4);
         dmGioHangRepository.save(dmGioHang);
+        dmGioHang.setHoaDonId(2);
         HoaDon result = hoaDonRepository.save(hoaDon);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, hoaDon.getId().toString()))
