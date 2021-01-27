@@ -18,11 +18,8 @@ export class HoaDonService {
 
   constructor(protected http: HttpClient) {}
 
-  create(hoaDon: IHoaDon): Observable<EntityResponseType> {
-    const copy = this.convertDateFromClient(hoaDon);
-    return this.http
-      .post<IHoaDon>(this.resourceUrl, copy, { observe: 'response' })
-      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  create(hoaDon?: IHoaDon): Observable<EntityResponseType> {
+    return this.http.post<IHoaDon>(this.resourceUrl, hoaDon, { observe: 'response' });
   }
 
   update(hoaDon: IHoaDon): Observable<EntityResponseType> {

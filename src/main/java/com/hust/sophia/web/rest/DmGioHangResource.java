@@ -167,6 +167,7 @@ public class DmGioHangResource {
             hoaDon.setNgayLap(LocalDate.now());
             hoaDon.setTrangThai2(gh.getId().toString());//id gio hang
             dmGioHang.setTrangThai("Đang giao hàng");
+            hoaDon.setGhiChu("Điện thoại: " + dmSanPham.getTen() + " " + dmSanPham.getBoNho());
             dmGioHang.setHoaDonId(2);
             dmSanPhamRepository.save(dmSanPham);
             hoaDonRepository.save(hoaDon);
