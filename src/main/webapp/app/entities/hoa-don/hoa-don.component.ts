@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IHoaDon } from 'app/shared/model/hoa-don.model';
 import { HoaDonService } from './hoa-don.service';
 import { HoaDonDeleteDialogComponent } from './hoa-don-delete-dialog.component';
+import { HoaDonUpdateComponent } from './hoa-don-update.component';
 
 @Component({
   selector: 'jhi-hoa-don',
@@ -20,6 +21,19 @@ export class HoaDonComponent implements OnInit, OnDestroy {
 
   loadAll(): void {
     this.hoaDonService.query().subscribe((res: HttpResponse<IHoaDon[]>) => (this.hoaDons = res.body || []));
+  }
+
+  detail(data?: IHoaDon): void {
+    const modalRef = this.modalService.open(HoaDonUpdateComponent, {
+      backdrop: 'static',
+      size: 'lg',
+      centered: true,
+    });
+    modalRef.componentInstance.data = data;
+    modalRef.result.then(
+      () => this.loadAll(),
+      () => {}
+    );
   }
 
   ngOnInit(): void {
