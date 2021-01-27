@@ -1,40 +1,23 @@
 <div class="modal-header modal-detail-header">
     <h4 class="modal-title" id="showHealthLabel" *ngIf="data && data.id">
-        <span jhiTranslate="qldtGatewayApp.qldtCategoriesDmBieuMau.home.createOrEditLabel"></span>: {{ data.ten }}
+        <span style="font-size: 30px">Cập nhật thông tin</span>
     </h4>
-    <h4 class="modal-title" *ngIf="!data || !data.id"
-        jhiTranslate="qldtGatewayApp.qldtCategoriesDmBieuMau.home.createLabel">
-
-    </h4>
-
     <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="dismiss()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body pad modal-detail-body">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-        <h2 id="jhi-hoa-don-heading" jhiTranslate="sophiaApp.hoaDon.home.createOrEditLabel">Create or edit a Hoa
-            Don</h2>
-
         <div>
-
-            <div class="form-group" [hidden]="!editForm.get('id')!.value">
+            <div class="form-group" *ngIf="!editForm.get('id')!.value" [hidden]="!editForm.get('id')!.value">
                 <label for="id" jhiTranslate="global.field.id">ID</label>
                 <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly/>
             </div>
-
             <div class="form-group">
                 <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.login"
                        for="field_login">Login</label>
                 <input type="text" class="form-control" name="login" id="field_login"
                        formControlName="login"/>
-            </div>
-
-            <div class="form-group">
-                <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.dmSanPhamId"
-                       for="field_dmSanPhamId">Dm San Pham Id</label>
-                <input type="number" class="form-control" name="dmSanPhamId" id="field_dmSanPhamId"
-                       formControlName="dmSanPhamId"/>
             </div>
 
             <div class="form-group">
@@ -92,26 +75,6 @@
                     Chu</label>
                 <input type="text" class="form-control" name="ghiChu" id="field_ghiChu"
                        formControlName="ghiChu"/>
-            </div>
-
-            <div class="form-group">
-                <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.ngayLap" for="field_ngayLap">Ngay
-                    Lap</label>
-                <div class="input-group">
-                    <input id="field_ngayLap" type="text" class="form-control" name="ngayLap" ngbDatepicker
-                           #ngayLapDp="ngbDatepicker" formControlName="ngayLap"/>
-                    <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="ngayLapDp.toggle()"><fa-icon
-                                icon="calendar-alt"></fa-icon></button>
-                        </span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-control-label" jhiTranslate="sophiaApp.hoaDon.trangThai2"
-                       for="field_trangThai2">Trang Thai 2</label>
-                <input type="text" class="form-control" name="trangThai2" id="field_trangThai2"
-                       formControlName="trangThai2"/>
             </div>
         </div>
     </form>

@@ -64,7 +64,7 @@ export class HoaDonUpdateComponent implements OnInit {
     };
     const dmTrangThai2 = {
       id: 2,
-      trangThai: 'Chờ giao hàng',
+      trangThai: 'Đang giao hàng',
     };
     const dmTrangThai3 = {
       id: 3,
@@ -72,7 +72,7 @@ export class HoaDonUpdateComponent implements OnInit {
     };
     const dmTrangThai4 = {
       id: 4,
-      trangThai: 'Thất bại',
+      trangThai: 'Giao hàng thất bại',
     };
     this.dmTrangThais?.push(dmTrangThai1);
     this.dmTrangThais?.push(dmTrangThai2);
