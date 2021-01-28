@@ -45,7 +45,7 @@ export class HoaDonUpdateComponent implements OnInit {
     this.dmTrangThais = [];
     this.dmTrangThai = {
       id: 1,
-      trangThai: 'aaaaaaaaaaaa',
+      trangThai: '',
     };
   }
 
@@ -120,11 +120,8 @@ export class HoaDonUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const hoaDon = this.createFromForm();
-    if (hoaDon.id !== undefined) {
-      this.subscribeToSaveResponse(this.hoaDonService.update(hoaDon));
-    } else {
-      this.subscribeToSaveResponse(this.hoaDonService.create(hoaDon));
-    }
+    this.hoaDonService.update(hoaDon).subscribe(() => this.activeModal.close());
+    this.activeModal.dismiss();
   }
 
   private createFromForm(): IHoaDon {

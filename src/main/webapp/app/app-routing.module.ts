@@ -25,6 +25,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         },
+        {
+          path: 'hoa-don',
+          loadChildren: () => import('./entities/hoa-don/hoa-don.module').then(m => m.SophiaHoaDonModule),
+        },
 
         ...LAYOUT_ROUTES,
       ],
