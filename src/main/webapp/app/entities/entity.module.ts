@@ -36,10 +36,7 @@ import { RouterModule } from '@angular/router';
         path: 'dm-gio-hang',
         loadChildren: () => import('./dm-gio-hang/dm-gio-hang.module').then(m => m.SophiaDmGioHangModule),
       },
-      {
-        path: 'hoa-don',
-        loadChildren: () => import('./hoa-don/hoa-don.module').then(m => m.SophiaHoaDonModule),
-      },
+
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
